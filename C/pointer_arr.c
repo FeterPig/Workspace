@@ -25,6 +25,8 @@ int main()
 
     printf("%p\n", arr[0]); // 00000069129FF77C
 
+    printf("%d\n", **arr); // 1
+
     printf("%d\n\n", *arr[0]); // 1
 
     return 0;
