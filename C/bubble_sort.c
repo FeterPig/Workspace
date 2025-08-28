@@ -3,7 +3,7 @@
 // 冒泡排序
 void bubble_sort(int arr[], int sz)
 // 函数参数中的int arr[]看起来像数组，
-// 但编译器会把它解析为int *arr（整数指针）。
+// 但编译器会把它解析为int* arr（整数指针）。
 // 即使你写成int arr[10]，
 // 编译器也会忽略这个长度，仍然当作int *arr处理。
 // 指针和数组在很多场景下可以互换使用
@@ -46,6 +46,7 @@ int main()
         printf("%d ", arr[i]);
     }
 
+    // 传入arr[10]首元素的地址
     bubble_sort(arr, sz);
 
     return 0;
