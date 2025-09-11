@@ -25,7 +25,7 @@ int main()
     int v = 0; // 速度 v 米每分钟
     const int ddl = 8 * 60 - 10;
     scanf("%d %d", &s, &v);
-    float f_min = s / v;
+    float f_min = (float)s / v;//将 s 强制转换为浮点型, 使得结果保留小数位数
     int i_min; // 提前多少分钟离开
 
     // 下面判断是否有小数部分, 若有则进位
@@ -46,32 +46,7 @@ int main()
     int s_hour = s_time / 60;   // 在第几个小时离开
     int s_minute = s_time % 60; // 在多少分时离开
 
-    char time[5] = {' ', ' ', ':', ' ', ' '};
-    if (s_hour < 10)
-    {
-        time[0] = (char)0;
-        time[1] = (char)s_hour;
-    }
-    else
-    {
-        time[0] = (char)s_hour / 10;
-        time[1] = (char)s_hour % 10;
-    }
-    if (s_minute < 10)
-    {
-        time[3] = (char)0;
-        time[4] = (char)s_minute;
-    }
-    else
-    {
-        time[3] = (char)s_minute / 10;
-        time[4] = (char)s_minute % 10;
-    }
-
-    for (size_t i = 0; i < 5; i++)
-    {
-        printf("%c", time[i]);
-    }
+    printf("%02d:%02d", s_hour, s_minute);
 
     return 0;
 }
