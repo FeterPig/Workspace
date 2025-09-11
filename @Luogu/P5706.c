@@ -11,3 +11,15 @@
 第一行输出一个三位小数，表示可以获得多少毫升饮料。第二行输出一个正整数，表示一共需要多少个杯子。
 */
 
+#include <stdio.h>
+
+int main()
+{
+    float t = 0.0;
+    int n = 0;
+    scanf("%f %d", &t, &n);
+    float c = t / n;
+    int d = 2 * n;
+    printf("%.3f\n%d", c, d);
+    return 0;
+}
