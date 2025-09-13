@@ -17,6 +17,7 @@ i
 int main()
 {
     int arr[100] = {0};
+    int n=0; // arr一共有n个元素
     for (int i = 0; i < 100; i++)
     {
         scanf("%d", &arr[i]);
@@ -24,23 +25,16 @@ int main()
         {
             break;
         }
-    }
-    int n;
-    for (int i = 0; i < 100; i++)
-    {
-        if (arr[i] == 0 && arr[i + 1] == 0 && arr[i - 1] != 0) // arr[i]为结尾的0
-        {
-            n = i; // arr一共有n个元素
-            break;
-        }
+        n++;
     }
     int arr1[n];
-    for (int i = 0; i < n; i++)
+    int k = n;
+    for (int i = 0; i < k; i++)
     {
         arr1[i] = arr[n - 1];
         n--;
     }
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < k; i++)
     {
         printf("%d ", arr1[i]);
     }
