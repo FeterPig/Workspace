@@ -3,5 +3,50 @@
         {
             "path": "."
         }
-    ]
+    ],
+    "settings": {
+        "files.associations": {
+            "bitset": "c",
+            "chrono": "c",
+            "complex": "c",
+            "format": "c",
+            "generator": "c",
+            "mutex": "c",
+            "numeric": "c",
+            "optional": "c",
+            "ranges": "c",
+            "streambuf": "c",
+            "system_error": "c",
+            "text_encoding": "c",
+            "regex": "c",
+            "tuple": "c",
+            "type_traits": "c",
+            "valarray": "c",
+            "variant": "c",
+            "exception": "c",
+            "functional": "c",
+            "future": "c",
+            "iosfwd": "c",
+            "stdexcept": "c",
+            "array": "c",
+            "charconv": "c",
+            "compare": "c",
+            "memory": "c",
+            "fstream": "c",
+            "iomanip": "c",
+            "istream": "c",
+            "limits": "c",
+            "memory_resource": "c",
+            "ostream": "c",
+            "print": "c",
+            "scoped_allocator": "c",
+            "shared_mutex": "c",
+            "spanstream": "c",
+            "sstream": "c",
+            "stop_token": "c",
+            "utility": "c"
+        },
+        "trae.tab.enableRename": false,
+        "trae.tab.enableAutoImport": false
+    }
 }
