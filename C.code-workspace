@@ -1,14 +1,16 @@
 {
-	"folders": [
-		{
-			"path": "C"
-		}
-	],
-	"launch": {
-		"version": "0.2.0",
-		"configurations": [
-			
-
-		]
-	}
+    "folders": [
+        {
+            "path": "C"
+        },
+        {
+            "path": "C++"
+        },
+        {
+            "path": "Java"
+        },
+        {
+            "path": "Python"
+        }
+    ]
 }
