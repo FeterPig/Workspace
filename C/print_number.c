@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-// ÉùÃ÷º¯Êý
+// å£°æ˜Žå‡½æ•°
 // int count(unsigned int);
 void judge(const char *str);
 int count(unsigned int);
@@ -12,11 +12,11 @@ int main()
 {
     char str[40];
     unsigned int num = 0;
-    printf("ÇëÊäÈëÒ»¶ÎÕýÕûÊý£º");
+    printf("è¯·è¾“å…¥ä¸€æ®µæ­£æ•´æ•°ï¼š");
     scanf("%s", str);
-    if (str[0] == '0') // ÅÐ¶ÏÊÇ·ñÒÔ0¿ªÍ·
+    if (str[0] == '0') // åˆ¤æ–­æ˜¯å¦ä»¥0å¼€å¤´
     {
-        printf("Êý×Ö²»ºÏ·¨£¬³ÌÐòÍË³ö£¡");
+        printf("æ•°å­—ä¸åˆæ³•ï¼Œç¨‹åºé€€å‡ºï¼");
         exit(0);
     }
     else
@@ -24,40 +24,40 @@ int main()
         judge(str);
 
         num = (unsigned int)strtoul(str, NULL, 10);
-        // ½« str ×ªÎª unsigned int ÀàÐÍ
+        // å°† str è½¬ä¸º unsigned int ç±»åž‹
 
         print(count(num), num);
         return 0;
     }
 }
 
-void judge(const char *str) // ÅÐ¶ÏÊý×Ö³¤¶ÈÊÇ·ñºÏ·¨
+void judge(const char *str) // åˆ¤æ–­æ•°å­—é•¿åº¦æ˜¯å¦åˆæ³•
 {
     const char *maxStr = "4294967295";
     if (strlen(str) > strlen(maxStr))
     {
-        printf("Êý×Ö²»ºÏ·¨£¬³ÌÐòÍË³ö£¡");
+        printf("æ•°å­—ä¸åˆæ³•ï¼Œç¨‹åºé€€å‡ºï¼");
         exit(0);
     }
-    if (strcmp(str, maxStr) > 0) // ³¤¶ÈÏàµÈÊ±Ö±½Ó±È½Ï×Ö·û´®
+    if (strcmp(str, maxStr) > 0) // é•¿åº¦ç›¸ç­‰æ—¶ç›´æŽ¥æ¯”è¾ƒå­—ç¬¦ä¸²
     {
-        printf("Êý×Ö²»ºÏ·¨£¬³ÌÐòÍË³ö£¡");
+        printf("æ•°å­—ä¸åˆæ³•ï¼Œç¨‹åºé€€å‡ºï¼");
         exit(0);
     }
 }
 
-int count(unsigned int num) // ÀûÓÃÑ­»·¼ÆÊý ÅÐ¶ÏÊý×ÖÎ»Êý
+int count(unsigned int num) // åˆ©ç”¨å¾ªçŽ¯è®¡æ•° åˆ¤æ–­æ•°å­—ä½æ•°
 {
     int count = 0;
     while (num != 0)
     {
-        num = num / 10; // Ã¿´Î³ýÒÔ10£¬È¥µô×îºóÒ»Î»
-        count++;        // ¼ÆÊý¼Ó1
+        num = num / 10; // æ¯æ¬¡é™¤ä»¥10ï¼ŒåŽ»æŽ‰æœ€åŽä¸€ä½
+        count++;        // è®¡æ•°åŠ 1
     }
     return count;
 }
 
-void print(int len, unsigned int num) // ´Ó×îºóÒ»Î»ÒÀ´Î´òÓ¡Ã¿Ò»Î»Êý×Ö
+void print(int len, unsigned int num) // ä»Žæœ€åŽä¸€ä½ä¾æ¬¡æ‰“å°æ¯ä¸€ä½æ•°å­—
 {
     for (int i = len; i > 0; i--)
     {

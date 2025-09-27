@@ -2,7 +2,7 @@
 
 int main()
 {
-    int n = 0; // 一行有n个正整数
+    int n = 0; // 涓�琛屾湁n涓鏁存暟
 
     while (scanf("%d", &n) == 1)
     {

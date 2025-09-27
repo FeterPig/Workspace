@@ -6,7 +6,7 @@ int main()
 {
     int t;
     scanf("%d", &t);
-    // Ñ­»·t´Î
+    // å¾ªç¯tæ¬¡
     while (t--)
     {
         int n;
@@ -17,12 +17,12 @@ int main()
 
 int isLeap(int x)
 {
-    // ÈòÄê
+    // é—°å¹´
     if ((x % 4 == 0) && (x % 100 != 0) || x % 400 == 0)
     {
         return 29;
     }
-    // ²»ÊÇÈòÄê
+    // ä¸æ˜¯é—°å¹´
     else
     {
         return 28;

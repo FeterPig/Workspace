@@ -1,34 +1,34 @@
-// °üº¬Í·ÎÄ¼ş
+// åŒ…å«å¤´æ–‡ä»¶
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
 #include <time.h>
 
 /**
- * @brief ×Ô¶¨ÒåÆåÅÌ´óĞ¡
- * @todo ·Ç3¡Á3ÆåÅÌÊ±Ğ±ÏßÅĞ¶¨
+ * @brief è‡ªå®šä¹‰æ£‹ç›˜å¤§å°
+ * @todo é3Ã—3æ£‹ç›˜æ—¶æ–œçº¿åˆ¤å®š
  */
-// ¶¨Òå³£Á¿ºê
-#define ROW 3 // ĞĞÊı
-#define COL 3 // ÁĞÊı
+// å®šä¹‰å¸¸é‡å®
+#define ROW 3 // è¡Œæ•°
+#define COL 3 // åˆ—æ•°
 
-// ³õÊ¼»¯ÆåÅÌ
+// åˆå§‹åŒ–æ£‹ç›˜
 void init_board(char board[ROW][COL], int row, int col);
 
-// ´òÓ¡ÆåÅÌ
+// æ‰“å°æ£‹ç›˜
 void display_board(char board[ROW][COL], int row, int col);
 
-// Íæ¼ÒÏÂÆå
+// ç©å®¶ä¸‹æ£‹
 void player_move(char board[ROW][COL], int row, int col);
 
-// µçÄÔÏÂÆå
+// ç”µè„‘ä¸‹æ£‹
 void computer_move(char board[ROW][COL], int row, int col);
 
 /**
- * 1:  Íæ¼Ò»ñÊ¤
- * -1: µçÄÔ»ñÊ¤
- * 2: Æ½¾Ö
- * 0: ¼ÌĞø
+ * 1:  ç©å®¶è·èƒœ
+ * -1: ç”µè„‘è·èƒœ
+ * 2: å¹³å±€
+ * 0: ç»§ç»­
  */
-// ÅĞ¶ÏÊäÓ®
+// åˆ¤æ–­è¾“èµ¢
 int is_win(char board[ROW][COL], int row, int col);

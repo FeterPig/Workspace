@@ -2,12 +2,12 @@
 
 int main()
 {
-    // ÒûÁÏ¼Û¸ñ
+    // é¥®æ–™ä»·æ ¼
     const int KQS = 150;
     const int KL = 200;
     const int CZ = 350;
 
-    // TĞĞ²âÊÔÊı¾İ
+    // Tè¡Œæµ‹è¯•æ•°æ®
     int T = 0;
     scanf("%d", &T);
     int arr[T];
@@ -16,22 +16,22 @@ int main()
         scanf("%d", &arr[i]);
     }
 
-    // Ã¿ÖÖÒûÁÏ×î¶àÂò¶àÉÙÆ¿
+    // æ¯ç§é¥®æ–™æœ€å¤šä¹°å¤šå°‘ç“¶
     int KQS_max = 0;
     int KL_max = 0;
     int CZ_max = 0;
 
-    // TĞĞÊı¾İÖĞµÄµÚi+1¸ö
+    // Tè¡Œæ•°æ®ä¸­çš„ç¬¬i+1ä¸ª
     for (int i = 0; i < T; i++)
     {
         int min_all;
 
-        // ¼ÆËã__max
+        // è®¡ç®—__max
         KQS_max = arr[i] / 150;
         KL_max = arr[i] / 200;
         CZ_max = arr[i] / 350;
 
-        // ¼ÆËã×îÉÙÀË·ÑÇ®Êı
+        // è®¡ç®—æœ€å°‘æµªè´¹é’±æ•°
 
         int arr2[(KQS_max + 1) * (KL_max + 1) * (CZ_max + 1)];
         int n = 0;

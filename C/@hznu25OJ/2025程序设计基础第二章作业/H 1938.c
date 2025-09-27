@@ -10,14 +10,14 @@ int main()
         scanf("%d", &arr[i]);
     }
 
-    // 反转数字
+    // 鍙嶈浆鏁板瓧
     for (int i = 0; i < T; i++)
     {
         int a, b, c, d, sum;
-        a = arr[i] % 10;       // 个位
-        b = arr[i] / 10 % 10;  // 十位
-        c = arr[i] / 100 % 10; // 百位
-        d = arr[i] / 1000;     // 千位
+        a = arr[i] % 10;       // 涓綅
+        b = arr[i] / 10 % 10;  // 鍗佷綅
+        c = arr[i] / 100 % 10; // 鐧句綅
+        d = arr[i] / 1000;     // 鍗冧綅
         sum = a * 1000 + b * 100 + c * 10 + d;
         printf("%d\n", sum);
     }

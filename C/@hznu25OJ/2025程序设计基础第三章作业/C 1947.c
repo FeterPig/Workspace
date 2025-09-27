@@ -6,8 +6,8 @@ int main()
     scanf("%d", &T);
     for (int i = 0; i < T; i++)
     {
-        int n;     // 总奖金数
-        int count; // 钞票数量
+        int n;     // 鎬诲閲戞暟
+        int count; // 閽炵エ鏁伴噺
         scanf("%d", &n);
 
         for (int a = 100; a >= 0; a--)

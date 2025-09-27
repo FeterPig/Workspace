@@ -6,7 +6,7 @@ int main()
     scanf("%d", &T);
     int arr[T];
 
-    // ¶ÁÈ¡ T ×é n
+    // è¯»å– T ç»„ n
     for (int i = 0; i < T; i++)
     {
         scanf("%d", &arr[i]);
@@ -14,7 +14,7 @@ int main()
 
     for (int i = 0; i < T; i++)
     {
-        // Èç¹ûnÄÜ±»3ºÍ2Õû³ı
+        // å¦‚æœnèƒ½è¢«3å’Œ2æ•´é™¤
         // if (arr[i] % 6 == 0)
         // {
         //     printf("n divisible by 2 and 3? 1");
@@ -24,13 +24,13 @@ int main()
         //     printf("n divisible by 2 and 3? 0");
         // }
 
-        // ¿ÉÒÔÓÃÈıÔª²Ù×÷·û!!
+        // å¯ä»¥ç”¨ä¸‰å…ƒæ“ä½œç¬¦!!
         arr[i] % 6 == 0 ? printf("%d divisible by 2 and 3? 1\n", arr[i]) : printf("%d divisible by 2 and 3? 0\n", arr[i]);
 
-        // Èç¹ûnÄÜ±»3Õû³ı»òÕßÄÜ±»2Õû³ı
+        // å¦‚æœnèƒ½è¢«3æ•´é™¤æˆ–è€…èƒ½è¢«2æ•´é™¤
         arr[i] % 3 == 0 || arr[i] % 2 == 0 ? printf("%d divisible by 2 or 3? 1\n", arr[i]) : printf("%d divisible by 2 or 3? 0\n", arr[i]);
 
-        // Èç¹ûnÄÜ±»2,3ÆäÖĞÒ»¸öÕû³ı
+        // å¦‚æœnèƒ½è¢«2,3å…¶ä¸­ä¸€ä¸ªæ•´é™¤
         (arr[i] % 3 == 0 && arr[i] % 2 != 0) || (arr[i] % 3 != 0 && arr[i] % 2 == 0) ? printf("%d divisible by 2 or 3, but not both? 1\n", arr[i]) : printf("%d divisible by 2 or 3, but not both? 0\n", arr[i]);
     }
 

@@ -4,7 +4,7 @@ void func() {}
 
 int main()
 {
-    // arr[11]Áô¿Õ, ´æ·Å·µ»ØÖµ
+    // arr[11]ç•™ç©º, å­˜æ”¾è¿”å›žå€¼
     int arr[11] = {0};
     while (scanf("%d %d %d %d %d %d %d %d %d %d", arr) != EOF)
     {

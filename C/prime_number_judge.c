@@ -1,4 +1,4 @@
-// ÊäÈëÒ»¸öÊı×Ö£¬ÅĞ¶ÏËüÊÇ²»ÊÇËØÊı
+// è¾“å…¥ä¸€ä¸ªæ•°å­—ï¼Œåˆ¤æ–­å®ƒæ˜¯ä¸æ˜¯ç´ æ•°
 
 #include <stdio.h>
 
@@ -34,7 +34,7 @@ int main()
     int num = 0;
     int result = -1;
 
-    printf("ÊäÈëÒ»¸öÊı×Ö£¬ÅĞ¶ÏËüÊÇ²»ÊÇËØÊı£º");
+    printf("è¾“å…¥ä¸€ä¸ªæ•°å­—ï¼Œåˆ¤æ–­å®ƒæ˜¯ä¸æ˜¯ç´ æ•°ï¼š");
     scanf("%d", &num);
 
     isPrime(num, &result);
@@ -42,13 +42,13 @@ int main()
     switch (result)
     {
     case 1:
-        printf("%dÊÇËØÊı", num);
+        printf("%dæ˜¯ç´ æ•°", num);
         break;
     case 0:
-        printf("%d²»ÊÇËØÊı", num);
+        printf("%dä¸æ˜¯ç´ æ•°", num);
         break;
     default:
-        printf("³ÌĞò´íÎó£¬ÇëÖØÊÔ£¡");
+        printf("ç¨‹åºé”™è¯¯ï¼Œè¯·é‡è¯•ï¼");
         break;
     }
 

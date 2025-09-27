@@ -2,12 +2,12 @@
 
 int main()
 {
-    int a, b, c; // ÄêÔÂÈÕ
+    int a, b, c; // å¹´æœˆæ—¥
     scanf("%d %d %d", &a, &b, &c);
     int month_max[13];
-    month_max[0] = 0; // ÖÃ¿Õ
+    month_max[0] = 0; // ç½®ç©º
     month_max[1] = 31;
-    month_max[2] = a % 4 == 0 ? 29 : 28; // Æ½Äê¶şÔÂ28,ÈóÄê¶şÔÂ29
+    month_max[2] = a % 4 == 0 ? 29 : 28; // å¹³å¹´äºŒæœˆ28,æ¶¦å¹´äºŒæœˆ29
     month_max[3] = 31;
     month_max[4] = 30;
     month_max[5] = 31;

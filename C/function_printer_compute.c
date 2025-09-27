@@ -24,7 +24,7 @@ int Div(int x, int y)
 int menu()
 {
     printf("************************************\n");
-    printf("************** ¼ÆËãÆ÷ **************\n");
+    printf("************** è®¡ç®—å™¨ **************\n");
     printf("************************************\n\n");
     // Sleep(500);
     printf("************************************\n");
@@ -34,7 +34,7 @@ int menu()
     printf("************************************\n\n");
 
     int ret;
-    printf("ÇëÑ¡Ôñ -> ");
+    printf("è¯·é€‰æ‹© -> ");
     scanf("%d", &ret);
     return ret;
 }
@@ -42,13 +42,13 @@ int menu()
 int menu_choice()
 {
     printf("************************************\n");
-    printf("******* 1. ¼Ó·¨ ***** 2. ¼õ·¨ ******\n");
+    printf("******* 1. åŠ æ³• ***** 2. å‡æ³• ******\n");
     printf("************************************\n");
-    printf("******* 3. ³Ë·¨ ***** 4. ³ı·¨ ******\n");
+    printf("******* 3. ä¹˜æ³• ***** 4. é™¤æ³• ******\n");
     printf("************************************\n\n");
 
     int ret;
-    printf("ÇëÑ¡Ôñ -> ");
+    printf("è¯·é€‰æ‹© -> ");
     scanf("%d", &ret);
     return ret;
 }
@@ -57,7 +57,7 @@ void compute(int (*func)(int x, int y), char *compute_char)
 {
     int x = 0, y = 0;
 
-    printf("ÇëÊäÈëÁ½¸ö²Ù×÷Êı: ");
+    printf("è¯·è¾“å…¥ä¸¤ä¸ªæ“ä½œæ•°: ");
     scanf("%d %d", &x, &y);
 
     printf("%d %s %d = %d\n\n", x, compute_char, y, func(x, y));
@@ -69,11 +69,11 @@ int main()
     {
         if (menu() != 1)
         {
-            printf("Ö´ĞĞ´íÎó!\n");
+            printf("æ‰§è¡Œé”™è¯¯!\n");
             exit(0);
         }
 
-        // º¯ÊıÖ¸ÕëÊı×é
+        // å‡½æ•°æŒ‡é’ˆæ•°ç»„
         int (*arr[4])(int, int) = {&Add, &Sub, &Mul, &Div};
 
         switch (menu_choice())
@@ -87,15 +87,15 @@ int main()
             break;
 
         case 3:
-            compute(arr[2], "¡Á");
+            compute(arr[2], "Ã—");
             break;
 
         case 4:
-            compute(arr[3], "¡Â");
+            compute(arr[3], "Ã·");
             break;
 
         default:
-            printf("Ö´ĞĞ´íÎó!\n");
+            printf("æ‰§è¡Œé”™è¯¯!\n");
             exit(0);
         }
     }

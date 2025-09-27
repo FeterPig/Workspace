@@ -5,14 +5,14 @@ int main()
     int n;
     while (scanf("%d", &n) == 1)
     {
-        // ¶ÁÈ¡ËùÓĞÊı¾İ
+        // è¯»å–æ‰€æœ‰æ•°æ®
         int arr[n];
         for (int i = 0; i < n; i++)
         {
             scanf("%d", &arr[i]);
         }
 
-        // Ñ¡È¡Å¼ÊıÊı¾İ
+        // é€‰å–å¶æ•°æ•°æ®
         int j = 0;
         int arr2[n];
         for (int i = 0; i < n; i++)

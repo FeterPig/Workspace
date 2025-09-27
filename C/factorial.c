@@ -11,8 +11,8 @@ int factorial(int n)
 int main()
 {
     int n;
-    printf("¼ÆËã__µÄ½×³Ë: ");
+    printf("è®¡ç®—__çš„é˜¶ä¹˜: ");
     scanf("%d", &n);
-    printf("%dµÄ½×³ËÊÇ: %d", n, factorial(n));
+    printf("%dçš„é˜¶ä¹˜æ˜¯: %d", n, factorial(n));
     return 0;
 }

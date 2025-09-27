@@ -13,7 +13,7 @@ struct Person
 
 int main()
 {
-    struct Person p1 = {"ÅíÏà²©", "ÄĞ", "19553233055", 18, 188, 125};
+    struct Person p1 = {"å½­ç›¸åš", "ç”·", "19553233055", 18, 188, 125};
 
     printf("%s\n%s\n%s\n%d\n%d\n%d\n", p1.name, p1.sex, p1.tel, p1.age, p1.height, p1.weight);
 

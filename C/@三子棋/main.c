@@ -3,15 +3,15 @@
 void first_menu()
 {
 	printf("************************************\n");
-	printf("************** Èı×ÓÆå **************\n");
+	printf("************** ä¸‰å­æ£‹ **************\n");
 	printf("************************************\n\n");
 	Sleep(500);
 	printf("************************************\n");
-	printf("******* ÊäÈë×ø±êÒÔ¿Õ¸ñ¼ä¸ô *********\n");
+	printf("******* è¾“å…¥åæ ‡ä»¥ç©ºæ ¼é—´éš” *********\n");
 	printf("************************************\n\n");
 	Sleep(500);
 	printf("************************************\n");
-	printf("**** ÀıÈç 1 2 ±íÊ¾ µÚ1ĞĞ µÚ2ÁĞ *****\n");
+	printf("**** ä¾‹å¦‚ 1 2 è¡¨ç¤º ç¬¬1è¡Œ ç¬¬2åˆ— *****\n");
 	printf("************************************\n\n");
 	Sleep(500);
 	printf("************************************\n");
@@ -24,7 +24,7 @@ void first_menu()
 void menu()
 {
 	printf("************************************\n");
-	printf("************** Èı×ÓÆå **************\n");
+	printf("************** ä¸‰å­æ£‹ **************\n");
 	printf("************************************\n\n");
 	Sleep(500);
 	printf("************************************\n");
@@ -39,27 +39,27 @@ void game()
 	int status = 0;
 	char board[ROW][COL] = {0};
 
-	// ³õÊ¼»¯ÆåÅÌ
+	// åˆå§‹åŒ–æ£‹ç›˜
 	init_board(board, ROW, COL);
 
-	// ´òÓ¡ÆåÅÌ
+	// æ‰“å°æ£‹ç›˜
 	display_board(board, ROW, COL);
 
 	Sleep(600);
 
 	printf("------------------------------------\n\n");
 
-	// ÏÂÆå
+	// ä¸‹æ£‹
 	while (1)
 	{
 		Sleep(600);
 
-		// Íæ¼Ò»ØºÏ
+		// ç©å®¶å›åˆ
 		player_move(board, ROW, COL);
 		status = is_win(board, ROW, COL);
 		if (status != 0)
 		{
-			// Ìø³öÏÂÆåÑ­»·
+			// è·³å‡ºä¸‹æ£‹å¾ªç¯
 			break;
 		}
 		display_board(board, ROW, COL);
@@ -70,12 +70,12 @@ void game()
 
 		Sleep(600);
 
-		// µçÄÔ»ØºÏ
+		// ç”µè„‘å›åˆ
 		computer_move(board, ROW, COL);
 		status = is_win(board, ROW, COL);
 		if (status != 0)
 		{
-			// Ìø³öÏÂÆåÑ­»·
+			// è·³å‡ºä¸‹æ£‹å¾ªç¯
 			break;
 		}
 		display_board(board, ROW, COL);
@@ -89,22 +89,22 @@ void game()
 	{
 	case 1:
 		display_board(board, ROW, COL);
-		printf("Íæ¼Ò»ñÊ¤!\n\n");
+		printf("ç©å®¶è·èƒœ!\n\n");
 		break;
 	case -1:
 		display_board(board, ROW, COL);
-		printf("µçÄÔ»ñÊ¤!\n\n");
+		printf("ç”µè„‘è·èƒœ!\n\n");
 		break;
 	case 2:
 		display_board(board, ROW, COL);
-		printf("Æ½¾Ö!\n\n");
+		printf("å¹³å±€!\n\n");
 		break;
 	}
 }
 
 int main()
 {
-	// ³õÊ¼»¯Ëæ»úÊı
+	// åˆå§‹åŒ–éšæœºæ•°
 	srand((unsigned int)time(NULL));
 
 	int input = 0;
@@ -119,7 +119,7 @@ int main()
 			menu();
 		}
 
-		printf("ÇëÑ¡Ôñ:-> ");
+		printf("è¯·é€‰æ‹©:-> ");
 		scanf("%d", &input);
 
 		switch (input)
@@ -129,11 +129,11 @@ int main()
 			Sleep(1200);
 			break;
 		case 2:
-			printf("\nÍË³öÓÎÏ·!\n");
+			printf("\né€€å‡ºæ¸¸æˆ!\n");
 			Sleep(1200);
 			break;
 		default:
-			printf("\nÑ¡Ôñ´íÎó!\n\n");
+			printf("\né€‰æ‹©é”™è¯¯!\n\n");
 			Sleep(1200);
 			break;
 		}

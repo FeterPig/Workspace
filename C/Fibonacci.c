@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <limits.h>
-#include <time.h> // ÒýÈëÊ±¼ä¿â
+#include <time.h> // å¼•å…¥æ—¶é—´åº“
 
-// µÝ¹éÐ´·¨
+// é€’å½’å†™æ³•
 int Fib_1(int n)
 {
     if (n <= 2)
@@ -11,7 +11,7 @@ int Fib_1(int n)
         return Fib_1(n - 1) + Fib_1(n - 2);
 }
 
-// µü´úÐ´·¨
+// è¿­ä»£å†™æ³•
 int Fib_2(int n)
 {
     int a = 1;
@@ -29,7 +29,7 @@ int Fib_2(int n)
     return c;
 }
 
-// µÝ¹é·½·¨
+// é€’å½’æ–¹æ³•
 void timeRecursiveFib_1()
 {
     clock_t start, end;
@@ -47,10 +47,10 @@ void timeRecursiveFib_1()
 
     duration = (double)(end - start) / CLOCKS_PER_SEC;
 
-    printf("\nµÝ¹é·½·¨ÔËÐÐÊ±¼ä: %f Ãë\n", duration);
+    printf("\né€’å½’æ–¹æ³•è¿è¡Œæ—¶é—´: %f ç§’\n", duration);
 }
 
-// µü´ú·½·¨
+// è¿­ä»£æ–¹æ³•
 void timeRecursiveFib_2()
 {
     clock_t start, end;
@@ -68,12 +68,12 @@ void timeRecursiveFib_2()
 
     duration = (double)(end - start) / CLOCKS_PER_SEC;
 
-    printf("\nµü´ú·½·¨ÔËÐÐÊ±¼ä: %f Ãë\n", duration);
+    printf("\nè¿­ä»£æ–¹æ³•è¿è¡Œæ—¶é—´: %f ç§’\n", duration);
 }
 
 int main()
 {
-    // µ÷ÓÃ·â×°ºóµÄµÝ¹é¼ÆÊ±º¯Êý
+    // è°ƒç”¨å°è£…åŽçš„é€’å½’è®¡æ—¶å‡½æ•°
     timeRecursiveFib_1();
     timeRecursiveFib_2();
 

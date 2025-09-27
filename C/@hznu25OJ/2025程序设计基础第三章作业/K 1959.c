@@ -12,7 +12,7 @@ int main()
             break;
         }
 
-        // int i = 1; // µÚiÐÐ
+        // int i = 1; // ç¬¬iè¡Œ
 
         for (int i = 1; i <= n; i++)
         {

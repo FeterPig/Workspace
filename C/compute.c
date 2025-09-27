@@ -28,11 +28,11 @@ int Divide(int a, int b)
 int main()
 {
     int a, b, choose, sum;
-    printf("ÊäÈëÁ½¸öÊı×Ö£¬ÒÔ¿Õ¸ñ¸ô¿ª£º");
+    printf("è¾“å…¥ä¸¤ä¸ªæ•°å­—ï¼Œä»¥ç©ºæ ¼éš”å¼€ï¼š");
     scanf("%d %d", &a, &b);
 
-    printf("ÇëÑ¡Ôñ¼ÆËã·½Ê½\n");
-    printf("(1)¼Ó·¨ (2)¼õ·¨ (3)³Ë·¨ (4)³ı·¨£º");
+    printf("è¯·é€‰æ‹©è®¡ç®—æ–¹å¼\n");
+    printf("(1)åŠ æ³• (2)å‡æ³• (3)ä¹˜æ³• (4)é™¤æ³•ï¼š");
     scanf("%d", &choose);
 
     switch (choose)
@@ -47,14 +47,14 @@ int main()
         break;
     case 3:
         sum = Multiply(a, b);
-        printf("%d ¡Á %d = %d", a, b, sum);
+        printf("%d Ã— %d = %d", a, b, sum);
         break;
     case 4:
         sum = Divide(a, b);
-        printf("%d ¡Â %d = %d ... %d", a, b, sum, a % b);
+        printf("%d Ã· %d = %d ... %d", a, b, sum, a % b);
         break;
     default:
-        printf("ÊäÈë´íÎó£¬ÇëÖØÊÔ£¡");
+        printf("è¾“å…¥é”™è¯¯ï¼Œè¯·é‡è¯•ï¼");
         break;
     }
 

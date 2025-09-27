@@ -2,11 +2,11 @@
 
 int main()
 {
-    // 输入
+    // 杈撳叆
     int a, b;
     scanf("%d %d", &a, &b);
 
-    // 情况1: 实心
+    // 鎯呭喌1: 瀹炲績
     if (a == 1 || a == 2)
     {
         for (int i = 0; i < a; i++)
@@ -19,7 +19,7 @@ int main()
         }
     }
 
-    // 情况2: 空心
+    // 鎯呭喌2: 绌哄績
     else
     {
         for (int j = 0; j < b; j++)

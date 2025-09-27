@@ -2,11 +2,11 @@
 
 int main()
 {
-    // T×éÊäÈë
+    // Tç»„è¾“å…¥
     int T = 0;
     scanf("%d", &T);
 
-    // Ã¿Ò»×éÊäÈë
+    // æ¯ä¸€ç»„è¾“å…¥
     long long int arr[T];
     for (int i = 0; i < T; i++)
     {
@@ -16,7 +16,7 @@ int main()
         arr[i] = c;
     }
 
-    // Êä³ö
+    // è¾“å‡º
     for (int i = 0; i < T; i++)
     {
         printf("%lld\n", arr[i]);

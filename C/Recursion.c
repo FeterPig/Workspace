@@ -1,4 +1,4 @@
-// Next Step£ºÓÃµİ¹éµÄ·½·¨¸Ä½ø³ÉÕıĞò´òÓ¡
+// Next Stepï¼šç”¨é€’å½’çš„æ–¹æ³•æ”¹è¿›æˆæ­£åºæ‰“å°
 
 #include <stdio.h>
 
@@ -12,7 +12,7 @@ void print(int num)
 }
 
 
-// ÓÃµİ¹éµÄ·½·¨Çó½â×Ö·û´®³¤¶È
+// ç”¨é€’å½’çš„æ–¹æ³•æ±‚è§£å­—ç¬¦ä¸²é•¿åº¦
 
 int count(char *str)
 {
@@ -31,13 +31,13 @@ int main()
     int num = 0;
     char str[40];
 
-    printf("ÇëÊäÈëÒ»¶ÎÕıÕûÊı£º");
+    printf("è¯·è¾“å…¥ä¸€æ®µæ­£æ•´æ•°ï¼š");
     scanf("%d", &num);
     print(num);
 
-    printf("\nÇëÊäÈëÒ»¶Î×ÖÄ¸: ");
+    printf("\nè¯·è¾“å…¥ä¸€æ®µå­—æ¯: ");
     scanf("%s", str);
-    printf("×ÖÄ¸µÄ¸öÊıÊÇ%d", count(str));
+    printf("å­—æ¯çš„ä¸ªæ•°æ˜¯%d", count(str));
 
     return 0;
 }

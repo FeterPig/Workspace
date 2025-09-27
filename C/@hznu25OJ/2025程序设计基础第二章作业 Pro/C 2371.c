@@ -2,7 +2,7 @@
 
 int is_2n(int x)
 {
-    while (x % 2 == 0) // Å¼Êı
+    while (x % 2 == 0) // å¶æ•°
     {
         x = x / 2;
     }
@@ -28,7 +28,7 @@ int main()
             printf("YES\n");
         }
 
-        // return 1: ÊÇ2^n
+        // return 1: æ˜¯2^n
         else if (is_2n(x) == 1)
         {
             printf("YES\n");

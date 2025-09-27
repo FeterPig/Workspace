@@ -6,8 +6,8 @@ int main()
     scanf("%d", &T);
 
     float arr[T];
-    int n; // nÔª
-    int m; // mÈË
+    int n; // nå…ƒ
+    int m; // mäºº
 
     for (int i = 0; i < T; i++)
     {

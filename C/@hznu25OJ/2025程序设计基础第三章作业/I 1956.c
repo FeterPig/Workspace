@@ -5,7 +5,7 @@ int main()
     int N = 0;
     while (scanf("%d", &N) == 1)
     {
-        int a, b, c; // 百位,十位,个位
+        int a, b, c; // 鐧句綅,鍗佷綅,涓綅
         if (N < 10)
         {
             a = 0;

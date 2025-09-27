@@ -5,10 +5,10 @@ int main()
     int T;
     scanf("%d", &T);
 
-    // Ã¿Ò»ĞĞ
+    // æ¯ä¸€è¡Œ
     for (int i = 0; i < T; i++)
     {
-        int a, b, c; // 300,100,50·ÖµÄ¸öÊı
+        int a, b, c; // 300,100,50åˆ†çš„ä¸ªæ•°
         scanf("%d %d %d", &a, &b, &c);
         int max = 0;
         int min = 0;
@@ -34,7 +34,7 @@ int main()
         int score_min = 0;
         int score_max = 0;
 
-        // ×îĞ¡·ÖÊı:ÏÈ300,ºó50
+        // æœ€å°åˆ†æ•°:å…ˆ300,å50
         for (int j = 0; j < (a + b + c);)
         {
             for (int z = 0; z < a; z++)
@@ -54,7 +54,7 @@ int main()
             }
         }
 
-        //  ×î´ó·ÖÊı:ÏÈ50ºó300
+        //  æœ€å¤§åˆ†æ•°:å…ˆ50å300
         for (int j = 0; j < (a + b + c);)
         {
             for (int z = 0; z < c; z++)

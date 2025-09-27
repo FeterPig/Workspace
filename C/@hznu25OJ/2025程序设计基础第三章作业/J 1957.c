@@ -5,7 +5,7 @@ int main()
     int vul = 0;
     int d = 0;
 
-    // Ò»ÐÐ
+    // ä¸€è¡Œ
     while (scanf("%d %d", &vul, &d) == 2)
     {
         int time1 = 0;
@@ -13,9 +13,9 @@ int main()
 
         time1 = (vul % d == 0) ? (vul / d) : (vul / d + 1);
 
-        int i = 1; // µÚi×é
-        int j = 0; // µÚjµÎ
-        int k = 0; // ¼ÆÊý
+        int i = 1; // ç¬¬iç»„
+        int j = 0; // ç¬¬jæ»´
+        int k = 0; // è®¡æ•°
 
         while (j < time1)
         {

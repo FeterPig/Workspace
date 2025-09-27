@@ -5,10 +5,10 @@ int main()
     char a;
     scanf("%c", &a);
 
-    printf("DEC:%d\n", a); // Ê®½øÖÆ
-    printf("OCT:%o\n", a); // °Ë½øÖÆ
-    printf("HEX:%x\n", a); // Ê®Áù½øÖÆ
-    // ²¹³ä: ¶ş½øÖÆÊÇ BIN
+    printf("DEC:%d\n", a); // åè¿›åˆ¶
+    printf("OCT:%o\n", a); // å…«è¿›åˆ¶
+    printf("HEX:%x\n", a); // åå…­è¿›åˆ¶
+    // è¡¥å……: äºŒè¿›åˆ¶æ˜¯ BIN
 
     return 0;
 }

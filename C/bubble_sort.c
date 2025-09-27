@@ -1,21 +1,21 @@
 #include <stdio.h>
 
-// Ã°ÅÝÅÅÐò
+// å†’æ³¡æŽ’åº
 void bubble_sort(int arr[], int sz)
-// º¯Êý²ÎÊýÖÐµÄint arr[]¿´ÆðÀ´ÏñÊý×é£¬
-// µ«±àÒëÆ÷»á°ÑËü½âÎöÎªint* arr£¨ÕûÊýÖ¸Õë£©¡£
-// ¼´Ê¹ÄãÐ´³Éint arr[10]£¬
-// ±àÒëÆ÷Ò²»áºöÂÔÕâ¸ö³¤¶È£¬ÈÔÈ»µ±×÷int *arr´¦Àí¡£
-// Ö¸ÕëºÍÊý×éÔÚºÜ¶à³¡¾°ÏÂ¿ÉÒÔ»¥»»Ê¹ÓÃ
+// å‡½æ•°å‚æ•°ä¸­çš„int arr[]çœ‹èµ·æ¥åƒæ•°ç»„ï¼Œ
+// ä½†ç¼–è¯‘å™¨ä¼šæŠŠå®ƒè§£æžä¸ºint* arrï¼ˆæ•´æ•°æŒ‡é’ˆï¼‰ã€‚
+// å³ä½¿ä½ å†™æˆint arr[10]ï¼Œ
+// ç¼–è¯‘å™¨ä¹Ÿä¼šå¿½ç•¥è¿™ä¸ªé•¿åº¦ï¼Œä»ç„¶å½“ä½œint *arrå¤„ç†ã€‚
+// æŒ‡é’ˆå’Œæ•°ç»„åœ¨å¾ˆå¤šåœºæ™¯ä¸‹å¯ä»¥äº’æ¢ä½¿ç”¨
 
-// ÐÞÕý: Æ½Ê±Õý³£Ð´´úÂëÊ±Ö±½ÓÐ´³É int arr[10] ¼´¿É
-// Àí½âÎªÓÃÏàÓ¦µÄÊý×é½ÓÊÕ, ²»ÓÃ¹ýÓÚÉî¾¿
+// ä¿®æ­£: å¹³æ—¶æ­£å¸¸å†™ä»£ç æ—¶ç›´æŽ¥å†™æˆ int arr[10] å³å¯
+// ç†è§£ä¸ºç”¨ç›¸åº”çš„æ•°ç»„æŽ¥æ”¶, ä¸ç”¨è¿‡äºŽæ·±ç©¶
 
 {
-    // Ò»´ÎÃ°ÅÝÅÅÐò
+    // ä¸€æ¬¡å†’æ³¡æŽ’åº
     for (int i = 0; i < sz - 1; i++)
     {
-        // µ¥ÌËÃ°ÅÝÅÅÐò
+        // å•è¶Ÿå†’æ³¡æŽ’åº
         for (int j = 0; j < sz - 1 - i; j++)
         {
             if (arr[j] > arr[j + 1])
@@ -27,7 +27,7 @@ void bubble_sort(int arr[], int sz)
         }
     }
 
-    printf("\nÃ°ÅÝÅÅÐòºóµÄÊý×éÊÇ: ");
+    printf("\nå†’æ³¡æŽ’åºåŽçš„æ•°ç»„æ˜¯: ");
 
     for (int k = 0; k < sz; k++)
     {
@@ -39,17 +39,17 @@ int main()
 {
     int arr[10] = {7, 8, 6, 9, 5, 3, 4, 0, 2, 1};
 
-    // Êý×éÔªËØ¸öÊý
+    // æ•°ç»„å…ƒç´ ä¸ªæ•°
     int sz = sizeof(arr) / sizeof(arr[0]);
 
-    printf("ÅÅÐòÇ°µÄÔ­Ê¼Êý×éÊÇ: ");
+    printf("æŽ’åºå‰çš„åŽŸå§‹æ•°ç»„æ˜¯: ");
 
     for (int i = 0; i < sz; i++)
     {
         printf("%d ", arr[i]);
     }
 
-    // ´«Èëarr[10]Ê×ÔªËØµÄµØÖ·
+    // ä¼ å…¥arr[10]é¦–å…ƒç´ çš„åœ°å€
     bubble_sort(arr, sz);
 
     return 0;

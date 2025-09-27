@@ -3,14 +3,14 @@
 #include <string.h>
 
 /**
- * ¶¯Ì¬ÀàÐÍ·ÖÅä
- * alloc: ·ÖÅä;·ÖÅäÄÚ´æ;ÄÚ´æ·ÖÅä;ÉêÇëÄÚ´æ;
+ * åŠ¨æ€ç±»åž‹åˆ†é…
+ * alloc: åˆ†é…;åˆ†é…å†…å­˜;å†…å­˜åˆ†é…;ç”³è¯·å†…å­˜;
  *
- * malloc: ÉêÇëÒ»¿éÁ¬ÐøµÄÖ¸¶¨´óÐ¡µÄÄÚ´æ¿éÇøÓò
- * calloc: ·ÖÅänum¸ö³¤¶ÈÎªsizeµÄÁ¬Ðø¿Õ¼ä²¢³õÊ¼»¯
+ * malloc: ç”³è¯·ä¸€å—è¿žç»­çš„æŒ‡å®šå¤§å°çš„å†…å­˜å—åŒºåŸŸ
+ * calloc: åˆ†é…numä¸ªé•¿åº¦ä¸ºsizeçš„è¿žç»­ç©ºé—´å¹¶åˆå§‹åŒ–
  *
- * realloc: À©ÈÝ³ÉÐÂµÄÄÚ´æ´óÐ¡ (ÓëÇ°ÃæµÄº¯Êý´îÅäÊ¹ÓÃ)
- * free:    ÊÍ·ÅÄÚ´æ (ÓëÇ°ÃæµÄº¯Êý´îÅäÊ¹ÓÃ)
+ * realloc: æ‰©å®¹æˆæ–°çš„å†…å­˜å¤§å° (ä¸Žå‰é¢çš„å‡½æ•°æ­é…ä½¿ç”¨)
+ * free:    é‡Šæ”¾å†…å­˜ (ä¸Žå‰é¢çš„å‡½æ•°æ­é…ä½¿ç”¨)
  */
 
 void _malloc()
@@ -30,7 +30,7 @@ void _malloc()
     }
     else if (pn == NULL)
     {
-        // À©ÈÝÊ§°Ü
+        // æ‰©å®¹å¤±è´¥
         printf("%s", strerror(errno));
     }
 
@@ -57,7 +57,7 @@ void _calloc()
     }
     else if (pn == NULL)
     {
-        // À©ÈÝÊ§°Ü
+        // æ‰©å®¹å¤±è´¥
         printf("%s", strerror(errno));
     }
 

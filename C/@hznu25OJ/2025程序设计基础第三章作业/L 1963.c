@@ -6,13 +6,13 @@ int main()
 
     scanf("%d %d %d", &arr[0], &arr[1], &arr[2]);
 
-    // 数组元素个数
+    // 鏁扮粍鍏冪礌涓暟
     int sz = sizeof(arr) / sizeof(arr[0]);
 
 
     for (int i = 0; i < sz - 1; i++)
     {
-        // 单趟冒泡排序
+        // 鍗曡稛鍐掓场鎺掑簭
         for (int j = 0; j < sz - 1 - i; j++)
         {
             if (arr[j] > arr[j + 1])

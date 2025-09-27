@@ -1,6 +1,6 @@
 #include "game.h"
 
-// ³õÊ¼»¯ÆåÅÌ
+// åˆå§‹åŒ–æ£‹ç›˜
 void init_board(char board[ROW][COL], int row, int col)
 {
     for (int i = 0; i < row; i++)
@@ -12,11 +12,11 @@ void init_board(char board[ROW][COL], int row, int col)
     }
 }
 
-// ´òÓ¡ÆåÅÌ
+// æ‰“å°æ£‹ç›˜
 void display_board(char board[ROW][COL], int row, int col)
 {
     /**
-     * @bug ÎŞ·¨ÊÊÓ¦²»Í¬ÆåÅÌ´óĞ¡
+     * @bug æ— æ³•é€‚åº”ä¸åŒæ£‹ç›˜å¤§å°
      * 
         printf("\n|---|---|---|\n");
         for (int i = 0; i < row; i++)
@@ -27,9 +27,9 @@ void display_board(char board[ROW][COL], int row, int col)
         printf("\n");
     */
 
-    // ÓÃ±äÁ¿¿ØÖÆĞĞÊıºÍÁĞÊı£¬ÊµÏÖ×ÔÊÊÓ¦
+    // ç”¨å˜é‡æ§åˆ¶è¡Œæ•°å’Œåˆ—æ•°ï¼Œå®ç°è‡ªé€‚åº”
 
-    // ´òÓ¡µÚÒ»ĞĞ·Ö¸îÏß
+    // æ‰“å°ç¬¬ä¸€è¡Œåˆ†å‰²çº¿
     printf("\n|");
     for (int i = 0; i < col; i++)
     {
@@ -37,10 +37,10 @@ void display_board(char board[ROW][COL], int row, int col)
     }
     printf("\n");
 
-    // Ñ­»·´òÓ¡ÆåÅÌ¸ñ×ÓºÍ·Ö¸îÏß
+    // å¾ªç¯æ‰“å°æ£‹ç›˜æ ¼å­å’Œåˆ†å‰²çº¿
     for (int i = 0; i < row; i++)
     {
-        // ´òÓ¡Ò»ĞĞÆåÅÌ¸ñ×Ó
+        // æ‰“å°ä¸€è¡Œæ£‹ç›˜æ ¼å­
         printf("|");
         for (int j = 0; j < col; j++)
         {
@@ -48,7 +48,7 @@ void display_board(char board[ROW][COL], int row, int col)
         }
         printf("\n");
 
-        // ´òÓ¡Ò»ĞĞ·Ö¸îÏß
+        // æ‰“å°ä¸€è¡Œåˆ†å‰²çº¿
         printf("|");
         for (int k = 0; k < col; k++)
         {
@@ -59,24 +59,24 @@ void display_board(char board[ROW][COL], int row, int col)
     printf("\n");
 }
 
-// Íæ¼ÒÏÂÆå
+// ç©å®¶ä¸‹æ£‹
 void player_move(char board[ROW][COL], int row, int col)
 {
     int x = 0;
     int y = 0;
 
 re_move:
-    printf("Íæ¼ÒÏÂÆå, ÇëÊäÈë×ø±ê -> ");
+    printf("ç©å®¶ä¸‹æ£‹, è¯·è¾“å…¥åæ ‡ -> ");
     int ret = scanf("%d %d", &x, &y);
 
-    // ·ÇÊı×Ö?
+    // éæ•°å­—?
     if (ret != 2)
     {
-        printf("\nÊäÈë¸ñÊ½´íÎó, ÇëÊäÈëÊı×Ö×ø±ê!\n\n");
+        printf("\nè¾“å…¥æ ¼å¼é”™è¯¯, è¯·è¾“å…¥æ•°å­—åæ ‡!\n\n");
         Sleep(1200);
-        // Çå¿ÕÊäÈë»º´æÇø
+        // æ¸…ç©ºè¾“å…¥ç¼“å­˜åŒº
         while (getchar() != '\n')
-            ; // ¿ÕÓï¾ä
+            ; // ç©ºè¯­å¥
         goto re_move;
     }
     if (x >= 1 && x <= row && y >= 1 && y <= col)
@@ -87,28 +87,28 @@ re_move:
         }
         else
         {
-            printf("\n×ø±ê±»Õ¼ÓÃ, ²»ÄÜÏÂÆå!\n\n");
+            printf("\nåæ ‡è¢«å ç”¨, ä¸èƒ½ä¸‹æ£‹!\n\n");
             Sleep(1200);
             goto re_move;
         }
     }
     else
     {
-        printf("\n×ø±ê²»ºÏ·¨, ÇëÖØĞÂÊäÈë!\n\n");
+        printf("\nåæ ‡ä¸åˆæ³•, è¯·é‡æ–°è¾“å…¥!\n\n");
         Sleep(1200);
         goto re_move;
     }
 }
 
-// µçÄÔÏÂÆå
+// ç”µè„‘ä¸‹æ£‹
 void computer_move(char board[ROW][COL], int row, int col)
 {
-    printf("µçÄÔÏÂÆå -> \n");
+    printf("ç”µè„‘ä¸‹æ£‹ -> \n");
 
     while (1)
     {
-        int x = rand() % row; // Éú³É 0 ~ row-1 µÄËæ»úÊı
-        int y = rand() % col; // Éú³É 0 ~ col-1 µÄËæ»úÊı
+        int x = rand() % row; // ç”Ÿæˆ 0 ~ row-1 çš„éšæœºæ•°
+        int y = rand() % col; // ç”Ÿæˆ 0 ~ col-1 çš„éšæœºæ•°
 
         if (board[x][y] == ' ')
         {
@@ -120,57 +120,57 @@ void computer_move(char board[ROW][COL], int row, int col)
 
 /**
  * @version 2.0
- * @author ¶¹°üAI
- * @brief ÖÇÄÜµçÄÔÂä×Ó£¨Ôö¼ÓÄÑ¶È£©
+ * @author è±†åŒ…AI
+ * @brief æ™ºèƒ½ç”µè„‘è½å­ï¼ˆå¢åŠ éš¾åº¦ï¼‰
  * 
     void computer_move(char board[ROW][COL], int row, int col)
     {
-        printf("µçÄÔÂä×Ó ->\n");
+        printf("ç”µè„‘è½å­ ->\n");
 
-        // ²½Öè1£º¼ì²éµçÄÔÊÇ·ñÄÜÒ»²½»ñÊ¤£¨ÓÅÏÈ×Ô¼ºÓ®£©
+        // æ­¥éª¤1ï¼šæ£€æŸ¥ç”µè„‘æ˜¯å¦èƒ½ä¸€æ­¥è·èƒœï¼ˆä¼˜å…ˆè‡ªå·±èµ¢ï¼‰
         for (int i = 0; i < row; i++)
         {
             for (int j = 0; j < col; j++)
             {
-                if (board[i][j] == ' ') // ÕÒµ½¿ÕÎ»
+                if (board[i][j] == ' ') // æ‰¾åˆ°ç©ºä½
                 {
-                    board[i][j] = '#';   // ¼ÙÉèµçÄÔÂä×Ó
-                    if (is_win(board, row, col) == -1) // ¼ì²éÊÇ·ñ»ñÊ¤
+                    board[i][j] = '#';   // å‡è®¾ç”µè„‘è½å­
+                    if (is_win(board, row, col) == -1) // æ£€æŸ¥æ˜¯å¦è·èƒœ
                     {
-                        return; // È·ÈÏÄÜÓ®£¬Ö±½ÓÂä×Ó
+                        return; // ç¡®è®¤èƒ½èµ¢ï¼Œç›´æ¥è½å­
                     }
-                    board[i][j] = ' '; // »Ö¸´ÆåÅÌ£¨Î´Ó®Ôò³·Ïú¼ÙÉè£©
+                    board[i][j] = ' '; // æ¢å¤æ£‹ç›˜ï¼ˆæœªèµ¢åˆ™æ’¤é”€å‡è®¾ï¼‰
                 }
             }
         }
 
-        // ²½Öè2£º¼ì²éÍæ¼ÒÊÇ·ñ¼´½«»ñÊ¤£¨ÓÅÏÈ×èÖ¹Íæ¼Ò£©
+        // æ­¥éª¤2ï¼šæ£€æŸ¥ç©å®¶æ˜¯å¦å³å°†è·èƒœï¼ˆä¼˜å…ˆé˜»æ­¢ç©å®¶ï¼‰
         for (int i = 0; i < row; i++)
         {
             for (int j = 0; j < col; j++)
             {
-                if (board[i][j] == ' ') // ÕÒµ½¿ÕÎ»
+                if (board[i][j] == ' ') // æ‰¾åˆ°ç©ºä½
                 {
-                    board[i][j] = '*';   // ¼ÙÉèÍæ¼ÒÂä×Ó
-                    if (is_win(board, row, col) == 1) // ¼ì²éÍæ¼ÒÊÇ·ñ»áÓ®
+                    board[i][j] = '*';   // å‡è®¾ç©å®¶è½å­
+                    if (is_win(board, row, col) == 1) // æ£€æŸ¥ç©å®¶æ˜¯å¦ä¼šèµ¢
                     {
-                        board[i][j] = '#'; // µçÄÔÇÀÕ¼¸ÃÎ»ÖÃ×èÖ¹
+                        board[i][j] = '#'; // ç”µè„‘æŠ¢å è¯¥ä½ç½®é˜»æ­¢
                         return;
                     }
-                    board[i][j] = ' '; // »Ö¸´ÆåÅÌ
+                    board[i][j] = ' '; // æ¢å¤æ£‹ç›˜
                 }
             }
         }
 
-        // ²½Öè3£ºÓÅÏÈÕ¼¾İÖĞĞÄ£¨3x3ÆåÅÌµÄÖĞĞÄÊÇ×îÓÅÎ»ÖÃ£©
-        if (board[1][1] == ' ') // ÖĞĞÄ×ø±ê (1,1)£¨Êı×éÏÂ±ê´Ó0¿ªÊ¼£©
+        // æ­¥éª¤3ï¼šä¼˜å…ˆå æ®ä¸­å¿ƒï¼ˆ3x3æ£‹ç›˜çš„ä¸­å¿ƒæ˜¯æœ€ä¼˜ä½ç½®ï¼‰
+        if (board[1][1] == ' ') // ä¸­å¿ƒåæ ‡ (1,1)ï¼ˆæ•°ç»„ä¸‹æ ‡ä»0å¼€å§‹ï¼‰
         {
             board[1][1] = '#';
             return;
         }
 
-        // ²½Öè4£ºÆä´ÎÕ¼¾İ½ÇÂä£¨½ÇÂä±È±ßÔµ¸üÒ×ĞÎ³É»ñÊ¤Â·Ïß£©
-        int corners[4][2] = {{0,0}, {0,2}, {2,0}, {2,2}}; // ËÄ¸ö½ÇÂä×ø±ê
+        // æ­¥éª¤4ï¼šå…¶æ¬¡å æ®è§’è½ï¼ˆè§’è½æ¯”è¾¹ç¼˜æ›´æ˜“å½¢æˆè·èƒœè·¯çº¿ï¼‰
+        int corners[4][2] = {{0,0}, {0,2}, {2,0}, {2,2}}; // å››ä¸ªè§’è½åæ ‡
         for (int i = 0; i < 4; i++)
         {
             int x = corners[i][0];
@@ -182,8 +182,8 @@ void computer_move(char board[ROW][COL], int row, int col)
             }
         }
 
-        // ²½Öè5£º×îºóÑ¡Ôñ±ßÔµÎ»ÖÃ£¨Ê£Óà¿ÕÎ»Ö»ÄÜÊÇ±ßÔµ£©
-        int edges[4][2] = {{0,1}, {1,0}, {1,2}, {2,1}}; // ËÄ¸ö±ßÔµ×ø±ê
+        // æ­¥éª¤5ï¼šæœ€åé€‰æ‹©è¾¹ç¼˜ä½ç½®ï¼ˆå‰©ä½™ç©ºä½åªèƒ½æ˜¯è¾¹ç¼˜ï¼‰
+        int edges[4][2] = {{0,1}, {1,0}, {1,2}, {2,1}}; // å››ä¸ªè¾¹ç¼˜åæ ‡
         for (int i = 0; i < 4; i++)
         {
             int x = edges[i][0];
@@ -197,12 +197,12 @@ void computer_move(char board[ROW][COL], int row, int col)
     }
 */
 
-// ÏÂÃæÕâÀïĞ´ËÀÁË, Ö»ÄÜÓÃÓÚÈı×ÓÆå, ´ıºóĞøÓÅ»¯
+// ä¸‹é¢è¿™é‡Œå†™æ­»äº†, åªèƒ½ç”¨äºä¸‰å­æ£‹, å¾…åç»­ä¼˜åŒ–
 
-// ÅĞ¶ÏÊäÓ®
+// åˆ¤æ–­è¾“èµ¢
 int is_win(char board[ROW][COL], int row, int col)
 {
-    // Ò»ĞĞÉÏµÄÈı¸öÆå×ÓÏàÍ¬
+    // ä¸€è¡Œä¸Šçš„ä¸‰ä¸ªæ£‹å­ç›¸åŒ
     for (int i = 0; i < row; i++)
     {
         if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][1] != ' ')
@@ -218,7 +218,7 @@ int is_win(char board[ROW][COL], int row, int col)
         }
     }
 
-    // Ò»ÁĞÉÏµÄÈı¸öÆå×ÓÏàÍ¬
+    // ä¸€åˆ—ä¸Šçš„ä¸‰ä¸ªæ£‹å­ç›¸åŒ
     for (int j = 0; j < col; j++)
     {
         if (board[0][j] == board[1][j] && board[1][j] == board[2][j] && board[1][j] != ' ')
@@ -234,7 +234,7 @@ int is_win(char board[ROW][COL], int row, int col)
         }
     }
 
-    // ¶Ô½ÇÏßÉÏµÄÈı¸öÆå×ÓÏàÍ¬
+    // å¯¹è§’çº¿ä¸Šçš„ä¸‰ä¸ªæ£‹å­ç›¸åŒ
     if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[1][1] != ' ')
     {
         if (board[1][1] == '*')
@@ -258,7 +258,7 @@ int is_win(char board[ROW][COL], int row, int col)
         }
     }
 
-    // ¼ì²éÆ½¾Ö£¨ËùÓĞ¸ñ×ÓÌîÂú£©
+    // æ£€æŸ¥å¹³å±€ï¼ˆæ‰€æœ‰æ ¼å­å¡«æ»¡ï¼‰
     int is_full = 1;
     for (int i = 0; i < row; i++)
     {
@@ -277,12 +277,12 @@ int is_win(char board[ROW][COL], int row, int col)
     }
     if (is_full == 1)
     {
-        // Æ½¾Ö
+        // å¹³å±€
         return 2;
     }
     else
     {
-        // ¼ÌĞø
+        // ç»§ç»­
         return 0;
     }
 }
