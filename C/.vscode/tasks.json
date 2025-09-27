@@ -12,6 +12,7 @@
                 "-m64",
                 "-Wall",
                 "-static-libgcc",
+                "-finput-charset=UTF-8",
                 "-fexec-charset=GBK",
                 "-D__USE_MINGW_ANSI_STDIO"
             ],
