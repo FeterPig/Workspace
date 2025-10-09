@@ -6,5 +6,10 @@
 		{
 			"path": "C++"
 		}
-	]
+	],
+	"settings": {
+		"files.associations": {
+			"valarray": "c"
+		}
+	}
 }
