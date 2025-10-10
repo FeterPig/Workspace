@@ -30,10 +30,14 @@ int Fib_2(int n)
 }
 
 // 递归方法
-void timeRecursiveFib_1()
+/**
+ * 见下文递推方法
+ */
+
+void time_1()
 {
     clock_t start, end;
-    
+
     double duration;
 
     start = clock();
@@ -47,11 +51,11 @@ void timeRecursiveFib_1()
 
     duration = (double)(end - start) / CLOCKS_PER_SEC;
 
-    printf("\n递归方法运行时间: %f 秒\n", duration);
+    printf("\n递归方法运行时间: %lf 秒\n", duration);
 }
 
 // 迭代方法
-void timeRecursiveFib_2()
+void time_2()
 {
     clock_t start, end;
 
@@ -68,14 +72,48 @@ void timeRecursiveFib_2()
 
     duration = (double)(end - start) / CLOCKS_PER_SEC;
 
-    printf("\n迭代方法运行时间: %f 秒\n", duration);
+    printf("\n迭代方法运行时间: %lf 秒\n", duration);
+}
+
+// 递推方法
+void time_3()
+{
+    clock_t start, end;
+
+    double duration;
+
+    start = clock();
+
+    int arr[50] = {0};
+    arr[1] = 1;
+    arr[2] = 1;
+
+    for (int n = 1; n < 47; n++)
+    {
+        if (n == 1 || n == 2)
+        {
+            printf("%d ", arr[n]);
+        }
+        else
+        {
+            arr[n] = arr[n - 1] + arr[n - 2];
+            printf("%d ", arr[n]);
+        }
+    }
+
+    end = clock();
+
+    duration = (double)(end - start) / CLOCKS_PER_SEC;
+
+    printf("\n递推方法运行时间: %lf 秒\n", duration);
 }
 
 int main()
 {
     // 调用封装后的递归计时函数
-    timeRecursiveFib_1();
-    timeRecursiveFib_2();
+    time_1();
+    time_2();
+    time_3();
 
     return 0;
 }
