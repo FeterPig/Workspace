@@ -9,7 +9,8 @@
 	],
 	"settings": {
 		"files.associations": {
-			"valarray": "c"
+			"valarray": "c",
+			"stdio.h": "c"
 		}
 	}
 }
