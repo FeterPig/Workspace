@@ -1,138 +1,53 @@
-// #include <stdio.h>
-// #include <limits.h>
-
-// // 判断是否为幸运数
-// int is_xingyunshu(int num)
-// {
-//     while (1)
-//     {
-//         if (num % 10 != 4 && num % 10 != 7)
-//         {
-//             return 0;
-//         }
-//         else
-//         {
-//             num = num / 10;
-//         }
-//         if (num == 0)
-//         {
-//             return 1;
-//         }
-//     }
-// }
-
-// // 判断是否所有位之和为n
-// int is_all_add_n(int num, int n)
-// {
-//     int add = 0;
-//     while (1)
-//     {
-//         add += num % 10;
-//         num = num / 10;
-//         if (num == 0)
-//         {
-//             break;
-//         }
-//     }
-//     if (add == n)
-//     {
-//         return 1;
-//     }
-//     else
-//     {
-//         return 0;
-//     }
-// }
-
-// int main()
-// {
-//     int n = 0;
-//     scanf("%d", &n);
-
-//     int num = 0;
-//     while (1)
-//     {
-//         num++;
-//         if (is_xingyunshu(num) == 1 && is_all_add_n(num, n) == 1)
-//         {
-//             printf("%d", num);
-//             break;
-//         }
-//         if (num == INT_MAX)
-//         {
-//             printf("%d", -1);
-//             break;
-//         }
-//     }
-
-//     return 0;
-// }
-//
-// samples本地调试全都AC,一提交就是WA,我也不懂为啥一直不给过
-
-// -------------枚举法------------
-// ----------------------------------------
-// -------------构造法------------
-
 #include <stdio.h>
-
-int is_add_n(int num, int n)
-{
-    int add = 0;
-    while (1)
-    {
-        add += num % 10;
-        num = num / 10;
-        if (num == 0)
-        {
-            break;
-        }
-    }
-    if (add == n)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
-}
 
 int main()
 {
-    int n;
+    int n = 0;
     scanf("%d", &n);
 
-    if (n == 0)
+    int a = 0; // 4的个数
+    int b = 0; // 7的个数
+
+    // 解方程
+    // a + b = i;
+    // 4a + 7b = n;
+    // 解得b = (n - 4i) / 3，a = i - b;
+
+    int bit_min;
+    if (n % 7 == 0)
     {
-        printf("-1\n");
-        return 0;
+        bit_min = n / 7;
+    }
+    else
+    {
+        bit_min = n / 7 + 1;
     }
 
-    long long int num = 0;
-    int flag = -1;
-    for (int i = 0; i < 2100000000; i++)
-    {
-        num += 4;
-        flag = is_add_n(num, n);
-        if (flag == 1)
-        {
-            printf("%lld", num);
-            return 0;
-        }
+    int bit_max = n / 4;
 
-        num += 3;
-        flag = is_add_n(num, n);
-        if (flag == 1)
+    for (int i = bit_min; i <= bit_max; i++)
+    {
+        if ((n - 4 * i) >= 0 && (n - 4 * i) % 3 == 0)
         {
-            printf("%lld", num);
-            return 0;
+            b = (n - 4 * i) / 3;
+            a = i - b;
+
+            if (a >= 0)
+            {
+                for (int j = 0; j < a; j++)
+                {
+                    printf("4");
+                }
+                for (int j = 0; j < b; j++)
+                {
+                    printf("7");
+                }
+                return 0;
+            }
         }
-        num = (num - 3) * 10;
     }
 
-    printf("%d", -1);
+    printf("-1");
+
     return 0;
 }
-
-TO_BE_CONTINUED
