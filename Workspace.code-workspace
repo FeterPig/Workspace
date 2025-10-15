@@ -10,7 +10,8 @@
 	"settings": {
 		"files.associations": {
 			"valarray": "c",
-			"stdio.h": "c"
+			"stdio.h": "c",
+			"ratio": "c"
 		}
 	}
 }
