@@ -1,12 +1,14 @@
 #include <stdio.h>
-!!!!!!!!!!自己写一遍;
 int main()
 {
-
-    int n, x = 0;
+    // 输入
+    int n = 0;
     scanf("%d", &n);
 
-    while (n)
+    // 4或7的个数
+    int x = 0;
+
+    while (n != 0)
     {
         if (n % 10 == 4 || n % 10 == 7)
         {
@@ -14,29 +16,31 @@ int main()
             n = n / 10;
         }
         else
-            break;
+        {
+            printf("NO");
+            return 0;
+        }
     }
 
-    /*
-        获取n中4和7的个数，记为x
-    */
-
-    while (x)
+    while (x != 0)
     {
         if (x % 10 == 4 || x % 10 == 7)
             x = x / 10;
         else
-            break;
+        {
+            printf("NO");
+            return 0;
+        }
     }
 
-    /*
-        判断x是否由4或7组成
-    */
-
-    if (n == 0 && x == 0)
+    if (x == 0)
+    {
         printf("YES");
+    }
     else
+    {
         printf("NO");
+    }
 
     return 0;
 }
