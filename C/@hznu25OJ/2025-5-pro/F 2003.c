@@ -11,7 +11,7 @@ int main()
     int matrix_sum[n][k];
     for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < n; j++)
+        for (int j = 0; j < k; j++)
         {
             matrix_sum[i][j] = 0;
         }
