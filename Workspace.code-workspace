@@ -1,17 +1,7 @@
 {
-	"folders": [
-		{
-			"path": "C"
-		},
-		{
-			"path": "C++"
-		}
-	],
-	"settings": {
-		"files.associations": {
-			"valarray": "c",
-			"stdio.h": "c",
-			"ratio": "c"
-		}
-	}
+    "folders": [
+        {
+            "path": "."
+        }
+    ]
 }
