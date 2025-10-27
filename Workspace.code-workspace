@@ -5,16 +5,30 @@
         }
     ],
     "settings": {
+        // 按扩展名自动关联语言
         "files.associations": {
-            "bitset": "c",
-            "algorithm": "c",
-            "flat_map": "c",
-            "flat_set": "c",
-            "format": "c",
-            "string": "cpp",
-            "ostream": "cpp",
-            "chrono": "cpp",
-            "iostream": "cpp"
+            "*.c": "c",
+            "*.h": "c",
+            "<stdio.h>": "c",
+            "<stdlib.h>": "c",
+            "<string.h>": "c",
+            "<math.h>": "c",
+            "*.cpp": "cpp",
+            "*.cxx": "cpp",
+            "*.cc": "cpp",
+            "*.hpp": "cpp",
+            "<iostream>": "cpp",
+            "<string>": "cpp",
+            "<vector>": "cpp",
+            "<algorithm>": "cpp",
+            "<bitset>": "cpp",
+            "<flat_map>": "cpp",
+            "<flat_set>": "cpp",
+            "<format>": "cpp",
+            "<chrono>": "cpp",
+            "<bits/stdc++.h>": "cpp",
+            "iostream": "cpp",
+            "algorithm": "cpp"
         }
     }
 }
