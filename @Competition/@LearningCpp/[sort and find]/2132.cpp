@@ -1,111 +1,111 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define int long long
+typedef long long ll;
 
-// 没招了, 试试传引用
-bool cmp(const vector<int> &x, const vector<int> &y)
+struct Interval
 {
-    if (x[2] != y[2])
-    {
-        return x[2] < y[2];
-    }
-    return x[1] > y[1];
-}
+    ll L;
+    ll R;
+    int idx;
+    Interval(ll L, ll R, int idx) : L(L), R(R), idx(idx) {}
+};
 
-bool cmp_1(const vector<int> &x, const vector<int> &y)
+struct Bridge
 {
-    if (x[1] != y[1])
-    {
-        return x[1] < y[1];
-    }
-    return x[0] < y[0];
-}
-
-#undef int
+    ll len;
+    int idx;
+    Bridge(ll len, int idx) : len(len), idx(idx) {}
+};
 
 int main()
 {
-#define int long long
-
-    // 优化cin效率
     ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    cin.tie(0);
 
-    int n; // n个岛屿
-    int m; // m个桥
+    int n, m;
     cin >> n >> m;
 
-    int dyzb[2];                                   // 岛屿坐标 [左/右]
-    vector<int> dy;                                // 岛屿长度
-    vector<vector<int>> dyzb_v(n, vector<int>(2)); // 岛屿坐标 [左/右]
-    vector<vector<int>> qiao(m, vector<int>(2));   // 桥的编号/长度 (1-base)
-
+    vector<ll> l(n), r(n);
     for (int i = 0; i < n; i++)
     {
-        cin >> dyzb[0] >> dyzb[1];
-
-        dy.push_back(dyzb[1] - dyzb[0]);
-        dyzb_v[i][0] = (dyzb[0]);
-        dyzb_v[i][1] = (dyzb[1]);
+        cin >> l[i] >> r[i];
     }
 
-    for (int i = 0; i < m; i++)
-    {
-        int temp;
-        cin >> temp;
-        qiao[i][0] = (i + 1);
-        qiao[i][1] = (temp);
-    }
-
-    vector<vector<int>> qiao_min_max(n - 1, vector<int>(3)); // 桥的索引/长度区间 (1-base) (两边都是闭区间)
+    vector<Interval> intervals;
     for (int i = 0; i < n - 1; i++)
     {
-        qiao_min_max[i][0] = i + 1;
-        qiao_min_max[i][1] = dyzb_v[i + 1][0] - dyzb_v[i][1];
-        qiao_min_max[i][2] = qiao_min_max[i][1] + dy[i] + dy[i + 1];
+        ll gap_min = l[i + 1] - r[i];
+        ll gap_max = r[i + 1] - l[i];
+        intervals.push_back(Interval(gap_min, gap_max, i));
     }
 
-    // 贪心?
+    vector<Bridge> bridges;
+    for (int i = 0; i < m; i++)
+    {
+        ll a;
+        cin >> a;
+        bridges.push_back(Bridge(a, i));
+    }
 
-    sort(qiao_min_max.begin(), qiao_min_max.end(), cmp);
-    sort(qiao.begin(), qiao.end(), cmp_1);
+    sort(intervals.begin(), intervals.end(), [](const Interval &a, const Interval &b)
+         { return a.L < b.L; });
 
-    vector<int> ans(n, 0); // 1-base
+    sort(bridges.begin(), bridges.end(), [](const Bridge &a, const Bridge &b)
+         { return a.len < b.len; });
 
-    int ii = 0;
+    priority_queue<pair<ll, int>, vector<pair<ll, int>>, greater<pair<ll, int>>> heap;
+    vector<int> assignment(n - 1, -1);
     int j = 0;
-
-    while (ii < n - 1 && j < m)
+    for (int i = 0; i < m; i++)
     {
-        if (qiao[j][1] >= qiao_min_max[ii][1] && qiao[j][1] <= qiao_min_max[ii][2])
+        ll a = bridges[i].len;
+        int bridge_idx = bridges[i].idx;
+
+        while (j < n - 1 && intervals[j].L <= a)
         {
-            ans[qiao_min_max[ii][0]] = qiao[j][0];
-            ii++;
+            heap.push(make_pair(intervals[j].R, intervals[j].idx));
             j++;
         }
-        else
+
+        while (!heap.empty() && heap.top().first < a)
         {
-            j++;
+            heap.pop();
+        }
+
+        if (!heap.empty())
+        {
+            auto top = heap.top();
+            heap.pop();
+            int interval_idx = top.second;
+            assignment[interval_idx] = bridge_idx;
         }
     }
 
-    if (ii < n - 1)
+    bool all_assigned = true;
+    for (int i = 0; i < n - 1; i++)
     {
-        cout << "No\n";
+        if (assignment[i] == -1)
+        {
+            all_assigned = false;
+            break;
+        }
+    }
+
+    if (!all_assigned)
+    {
+        cout << "No" << endl;
     }
     else
     {
-        cout << "Yes\n";
-        for (int k = 1; k <= n - 1; k++)
+        cout << "Yes" << endl;
+        for (int i = 0; i < n - 1; i++)
         {
-            if (k != 1)
-            {
+            if (i > 0)
                 cout << " ";
-            }
-            cout << ans[k];
+            cout << assignment[i] + 1;
         }
-        cout << "\n";
+        cout << endl;
     }
 
     return 0;
