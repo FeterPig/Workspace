@@ -29,7 +29,10 @@
             "<bits/stdc++.h>": "cpp",
             "iostream": "cpp",
             "algorithm": "cpp",
-            "array": "cpp"
+            "array": "cpp",
+            "atomic": "cpp",
+            "cmath": "cpp",
+            "ostream": "cpp"
         }
     }
 }
