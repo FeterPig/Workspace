@@ -33,7 +33,11 @@
             "atomic": "cpp",
             "cmath": "cpp",
             "ostream": "cpp",
-            "chrono": "cpp"
+            "chrono": "cpp",
+            "deque": "cpp",
+            "string": "cpp",
+            "vector": "cpp",
+            "limits": "cpp"
         }
     }
 }
