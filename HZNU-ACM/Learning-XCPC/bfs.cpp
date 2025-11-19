@@ -1,4 +1,4 @@
-// 广度优先搜索
+// 基于 队列 的 广度优先搜索
 
 #include <bits/stdc++.h>
 using namespace std;

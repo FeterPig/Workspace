@@ -1,4 +1,4 @@
-// Floyd 算法
+// 基于 动态规划 的 Floyd 算法
 
 /*题目描述
 给出一张由 n 个点 m 条边组成的无向图。
@@ -20,11 +20,11 @@ int main()
     int n, m;
     cin >> n >> m;
 
-    vector<vector<long long>> mat(n + 1, vector<long long>(n + 1, INF));
+    vector<vector<long long>> dist(n + 1, vector<long long>(n + 1, INF));
 
     for (int i = 1; i <= n; i++)
     {
-        mat[i][i] = 0;
+        dist[i][i] = 0;
     }
 
     for (int i = 0; i < m; i++)
@@ -33,8 +33,8 @@ int main()
         long long w;
         cin >> u >> v >> w;
 
-        mat[u][v] = min(mat[u][v], w);
-        mat[v][u] = min(mat[v][u], w);
+        dist[u][v] = min(dist[u][v], w);
+        dist[v][u] = min(dist[v][u], w);
     }
 
     for (int k = 1; k <= n; k++)
@@ -43,9 +43,9 @@ int main()
         {
             for (int j = 1; j <= n; j++)
             {
-                if (mat[i][k] != INF && mat[k][j] != INF)
+                if (dist[i][k] != INF && dist[k][j] != INF)
                 {
-                    mat[i][j] = min(mat[i][k] + mat[k][j], mat[i][j]);
+                    dist[i][j] = min(dist[i][k] + dist[k][j], dist[i][j]);
                 }
             }
         }
@@ -55,7 +55,7 @@ int main()
     {
         for (int j = 1; j <= n; j++)
         {
-            cout << i << " -> " << j << " : " << mat[i][j] << "    ";
+            cout << i << " -> " << j << " : " << dist[i][j] << "    ";
         }
         cout << endl;
     }

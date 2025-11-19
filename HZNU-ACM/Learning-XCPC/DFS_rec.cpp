@@ -1,10 +1,9 @@
-// 深度优先搜索
+// 基于 递归 + 回溯 的 深度优先搜索
 
 #include <bits/stdc++.h>
 using namespace std;
 
 int n;
-int cnt;
 int k = 1; // 递归深度
 bool mark[6][6];
 int path[26][3];
