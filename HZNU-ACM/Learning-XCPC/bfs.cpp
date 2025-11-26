@@ -1,4 +1,5 @@
 // 基于 队列 的 广度优先搜索
+// 实际上一般采用的的都是邻接表
 
 #include <bits/stdc++.h>
 using namespace std;

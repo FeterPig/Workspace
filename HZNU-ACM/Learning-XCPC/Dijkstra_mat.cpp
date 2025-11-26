@@ -1,4 +1,5 @@
 // 基于 贪心 + 优先队列 使用 邻接矩阵 实现的 Dijkstra 算法
+// 实际上一般采用的的都是邻接表
 
 /*题目描述
 给出一张由 n 个点 m 条边组成的无向图。
@@ -51,33 +52,33 @@ int main()
     {
         // 1. 取出当前距离最短的节点
         long long d = q.top().first;
-        int s = q.top().second;
+        int now = q.top().second;
         q.pop();
 
         // 2. 剪枝：如果该节点已被处理过，或者有更短的路径已经到达过它，则跳过
-        if (marked[s] || d >= dist[s])
+        if (marked[now] || d >= dist[now])
         {
             continue;
         }
         else
         {
             // 3. 标记该节点为已确定最短路
-            marked[u] = true;
+            marked[now] = true;
         }
 
         // 4. 松弛操作：遍历该节点的所有邻居
-        for (int i = 1; i <= n; i++)
+        for (int next = 1; next <= n; next++)
         {
             // 松弛条件：
-            // 1. 节点 i 的最短路径尚未确定 (!marked[i])
-            // 2. 从 s 到 i 存在一条边 (mat[s][i] != INF)
-            // 3. 通过 s 中转到达 i 的新路径 (d + mat[s][i]) 比当前记录的 dist[i] 更短
-            if (!marked[i] && mat[s][i] != INF && dist[i] > d + mat[s][i])
+            // 1. 节点 next 的最短路径尚未确定 (!marked[next])
+            // 2. 从 now 到 next 存在一条边 (mat[now][next] != INF)
+            // 3. 通过 now 中转到达 next 的新路径 (d + mat[now][next]) 比当前记录的 dist[next] 更短
+            if (!marked[next] && mat[now][next] != INF && dist[next] > d + mat[now][next])
             {
-                // 更新 i 的最短距离
-                dist[i] = d + mat[s][i];
-                // 将更新后的 {新距离, 节点 i} 放入优先队列
-                q.push({dist[i], i});
+                // 更新 next 的最短距离
+                dist[next] = d + mat[now][next];
+                // 将更新后的 {新距离, 节点 next} 放入优先队列
+                q.push({dist[next], next});
             }
         }
     }

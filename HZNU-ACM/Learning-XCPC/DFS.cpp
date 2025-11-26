@@ -31,6 +31,7 @@ void dfs(int x, int y)
             mark[tx][ty] = true;
             dfs(tx, ty);
 
+            // 回溯
             k--;
             mark[tx][ty] = false;
             path[k + 1][1] = 0;

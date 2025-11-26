@@ -37,7 +37,9 @@
             "deque": "cpp",
             "string": "cpp",
             "vector": "cpp",
-            "limits": "cpp"
+            "limits": "cpp",
+            "ranges": "cpp",
+            "variant": "cpp"
         }
     }
 }
