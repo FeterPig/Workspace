@@ -1,2 +1,10 @@
 output/
+
+# 忽略所有 class 文件
+*.class
+
+# 忽略 IDEA 的编译输出目录
+out/
+
+# 忽略 Maven 的构建输出目录 (最重要)
 target/
