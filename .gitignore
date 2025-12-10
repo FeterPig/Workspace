@@ -8,3 +8,7 @@ out/
 
 # 忽略 Maven 的构建输出目录 (最重要)
 target/
+
+.idea/
+
+.vscode/
