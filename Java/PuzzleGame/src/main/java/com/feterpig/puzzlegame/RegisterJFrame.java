@@ -1,4 +1,4 @@
-package com.feterpig.puzzlegame.ui;
+package com.feterpig.puzzlegame;
 
 import javax.swing.*;
 

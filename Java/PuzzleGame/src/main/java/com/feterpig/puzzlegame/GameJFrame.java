@@ -1,8 +1,12 @@
-package com.feterpig.puzzlegame.ui;
+package com.feterpig.puzzlegame;
 
 import javax.swing.*;
+import java.net.URL;
+import java.util.Random;
 
 public class GameJFrame extends JFrame {
+    int[][] data = new int[4][4];
+
     // 游戏主界面
     public GameJFrame() {
         // 初始化窗体
@@ -11,8 +15,51 @@ public class GameJFrame extends JFrame {
         // 初始化菜单栏
         initMenu();
 
+        // 初始化数据
+        initData();
+
+        // 初始化图片
+        int x = 0;
+        int y = 0;
+
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                initImage("/image/puzzle/1/" + data[i][j] + ".jpg", x + 105 * j, y + 105 * i);
+            }
+        }
+
         // 窗体可见
         this.setVisible(true);
+    }
+
+    private void initData() {
+        int[] tempArr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+        Random r = new Random();
+
+        for (int i = 0; i < tempArr.length; i++) {
+            int index = r.nextInt(tempArr.length);
+            int temp = tempArr[i];
+            tempArr[i] = tempArr[index];
+            tempArr[index] = temp;
+        }
+
+        for (int i = 0; i < tempArr.length; i++) {
+            data[i / 4][i % 4] = tempArr[i];
+        }
+    }
+
+    private void initImage(String file, int x, int y) {
+        URL resourceUrl = this.getClass().getResource(file);
+        ImageIcon icon = null;
+
+        // 判断是否为最后一张图
+        if (resourceUrl != null) {
+            icon = new ImageIcon(resourceUrl);
+        }
+
+        JLabel jLabel = new JLabel(icon);
+        jLabel.setBounds(x, y, 105, 105);
+        this.getContentPane().add(jLabel);
     }
 
     private void initFrame() {
@@ -30,6 +77,9 @@ public class GameJFrame extends JFrame {
 
         // 禁用最大化
         this.setResizable(false);
+
+        // 取消默认居中放置
+        this.setLayout(null);
 
         // 设置程序关闭模式
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
