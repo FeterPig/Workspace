@@ -3,9 +3,9 @@ package com.feterpig.puzzlegame;
 public class App {
     public static void main(String[] args) {
 
-        new LoginJFrame();
+//        new LoginJFrame();
 
-        new RegisterJFrame();
+//        new RegisterJFrame();
 
         new GameJFrame();
     }

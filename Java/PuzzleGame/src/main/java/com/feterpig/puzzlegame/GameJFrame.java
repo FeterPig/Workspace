@@ -1,11 +1,25 @@
 package com.feterpig.puzzlegame;
 
 import javax.swing.*;
-import java.net.URL;
+import javax.swing.border.BevelBorder;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.Random;
 
-public class GameJFrame extends JFrame {
+public class GameJFrame extends JFrame implements KeyListener {
     int[][] data = new int[4][4];
+
+    // 空白方块位置
+    int xBlock;
+    int yBlock;
+
+    // 胜利判定
+    int[][] win = new int[][]{
+            {1, 2, 3, 4},
+            {5, 6, 7, 8},
+            {9, 10, 11, 12},
+            {13, 14, 15, 0}
+    };
 
     // 游戏主界面
     public GameJFrame() {
@@ -19,21 +33,25 @@ public class GameJFrame extends JFrame {
         initData();
 
         // 初始化图片
-        int x = 0;
-        int y = 0;
-
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
-                initImage("/image/puzzle/1/" + data[i][j] + ".jpg", x + 105 * j, y + 105 * i);
-            }
-        }
+        initImage();
 
         // 窗体可见
         this.setVisible(true);
     }
 
+    public boolean isWin() {
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (data[i][j] != win[i][j]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     private void initData() {
-        int[] tempArr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+        int[] tempArr = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
         Random r = new Random();
 
         for (int i = 0; i < tempArr.length; i++) {
@@ -44,22 +62,50 @@ public class GameJFrame extends JFrame {
         }
 
         for (int i = 0; i < tempArr.length; i++) {
+            if (tempArr[i] == 0) {
+                xBlock = i / 4;
+                yBlock = i % 4;
+            }
             data[i / 4][i % 4] = tempArr[i];
         }
     }
 
-    private void initImage(String file, int x, int y) {
-        URL resourceUrl = this.getClass().getResource(file);
-        ImageIcon icon = null;
+    private void initImage() {
+        // 清空原本已经出现的所有图片
+        this.getContentPane().removeAll();
 
-        // 判断是否为最后一张图
-        if (resourceUrl != null) {
-            icon = new ImageIcon(resourceUrl);
+        // 如果胜利
+        if (isWin()) {
+            ImageIcon win = new ImageIcon(this.getClass().getResource("/image/win.png"));
+            JLabel winIcon = new JLabel(win);
+            winIcon.setBounds(203, 283, 197, 73);
+            this.getContentPane().add(winIcon);
         }
 
-        JLabel jLabel = new JLabel(icon);
-        jLabel.setBounds(x, y, 105, 105);
-        this.getContentPane().add(jLabel);
+        // 初始化图片
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                int num = data[i][j];
+                if (num == 0) {
+                    continue;
+                }
+
+                ImageIcon icon = new ImageIcon(this.getClass().getResource("/image/puzzle/" + num + ".jpg"));
+                JLabel jLabel = new JLabel(icon);
+                jLabel.setBounds(105 * j + 83, 105 * i + 134, 105, 105);
+                jLabel.setBorder(new BevelBorder(BevelBorder.LOWERED));
+                this.getContentPane().add(jLabel);
+            }
+        }
+
+        // 初始化背景
+        ImageIcon bg = new ImageIcon(this.getClass().getResource("/image/background.png"));
+        JLabel background = new JLabel(bg);
+        background.setBounds(40, 40, 508, 560);
+        this.getContentPane().add(background);
+
+        // 刷新界面
+        this.getContentPane().repaint();
     }
 
     private void initFrame() {
@@ -83,6 +129,9 @@ public class GameJFrame extends JFrame {
 
         // 设置程序关闭模式
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        // 业务逻辑: 键盘监听
+        this.addKeyListener(this);
     }
 
     private void initMenu() {
@@ -112,5 +161,95 @@ public class GameJFrame extends JFrame {
         jMenuBar.add(jMenu1);
         jMenuBar.add(jMenu2);
         this.setJMenuBar(jMenuBar);
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        int code = e.getKeyCode();
+
+        if (code == 65) {
+            this.getContentPane().removeAll();
+            ImageIcon icon = new ImageIcon(this.getClass().getResource("/image/puzzle/all.jpg"));
+            JLabel all = new JLabel(icon);
+            all.setBounds(83, 134, 420, 420);
+            this.getContentPane().add(all);
+
+            // 初始化背景
+            ImageIcon bg = new ImageIcon(this.getClass().getResource("/image/background.png"));
+            JLabel background = new JLabel(bg);
+            background.setBounds(40, 40, 508, 560);
+            this.getContentPane().add(background);
+
+            // 刷新界面
+            this.getContentPane().repaint();
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        int code = e.getKeyCode();
+
+        if (isWin()) {
+            return;
+        }
+
+        if (code == 37) {
+            // 左移
+            if (yBlock == 0) {
+                return;
+            }
+            data[xBlock][yBlock] = data[xBlock][yBlock - 1];
+            data[xBlock][yBlock - 1] = 0;
+            yBlock--;
+            initImage();
+        } else if (code == 38) {
+            // 上移
+            if (xBlock == 0) {
+                return;
+            }
+            data[xBlock][yBlock] = data[xBlock - 1][yBlock];
+            data[xBlock - 1][yBlock] = 0;
+            xBlock--;
+            initImage();
+        } else if (code == 39) {
+            // 右移
+            if (yBlock == 3) {
+                return;
+            }
+            data[xBlock][yBlock] = data[xBlock][yBlock + 1];
+            data[xBlock][yBlock + 1] = 0;
+            yBlock++;
+            initImage();
+        } else if (code == 40) {
+            // 下移
+            if (xBlock == 3) {
+                return;
+            }
+            data[xBlock][yBlock] = data[xBlock + 1][yBlock];
+            data[xBlock + 1][yBlock] = 0;
+            xBlock++;
+            initImage();
+        }
+
+        if (code == 'A') {
+            initImage();
+        }
+
+        if (code == 'W') {
+            data = new int[][]{
+                    {1, 2, 3, 4},
+                    {5, 6, 7, 8},
+                    {9, 10, 11, 12},
+                    {13, 14, 15, 0}
+            };
+            initImage();
+            xBlock = 3;
+            yBlock = 3;
+        }
     }
 }
