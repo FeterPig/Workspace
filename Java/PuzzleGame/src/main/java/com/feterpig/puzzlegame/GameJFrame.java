@@ -2,12 +2,26 @@ package com.feterpig.puzzlegame;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Random;
 
-public class GameJFrame extends JFrame implements KeyListener {
+public class GameJFrame extends JFrame implements KeyListener, ActionListener {
+    // 菜单选项
+    JMenuItem jMenuItem11 = new JMenuItem("重新游戏");
+    //    JMenuItem jMenuItem12 = new JMenuItem("重新登录");
+    JMenuItem jMenuItem13 = new JMenuItem("一键通关");
+    JMenuItem jMenuItem14 = new JMenuItem("退出游戏");
+    JMenuItem jMenuItem21 = new JMenuItem("GitHub");
+    JMenuItem jMenuItem22 = new JMenuItem("个人主页");
+
+    // 记录当前拼图状态
     int[][] data = new int[4][4];
+
+    // 计数器
+    int count = 0;
 
     // 空白方块位置
     int xBlock;
@@ -82,6 +96,10 @@ public class GameJFrame extends JFrame implements KeyListener {
             this.getContentPane().add(winIcon);
         }
 
+        JLabel countWord = new JLabel("步数:" + count);
+        countWord.setBounds(50, 30, 100, 20);
+        this.getContentPane().add(countWord);
+
         // 初始化图片
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
@@ -141,19 +159,20 @@ public class GameJFrame extends JFrame implements KeyListener {
 
         // 游戏菜单
         JMenu jMenu1 = new JMenu("游戏菜单");
-        JMenuItem jMenuItem11 = new JMenuItem("重新游戏");
-        JMenuItem jMenuItem12 = new JMenuItem("选择难度");
-        JMenuItem jMenuItem13 = new JMenuItem("一键通关");
-        JMenuItem jMenuItem14 = new JMenuItem("退出游戏");
-
         // 联系我们
         JMenu jMenu2 = new JMenu("联系我们");
-        JMenuItem jMenuItem21 = new JMenuItem("GitHub");
-        JMenuItem jMenuItem22 = new JMenuItem("个人主页");
+
+        // 添加鼠标事件绑定
+        jMenuItem11.addActionListener(this);
+//        jMenuItem12.addActionListener(this);
+        jMenuItem13.addActionListener(this);
+        jMenuItem14.addActionListener(this);
+        jMenuItem21.addActionListener(this);
+        jMenuItem22.addActionListener(this);
 
         // 菜单结构
         jMenu1.add(jMenuItem11);
-        jMenu1.add(jMenuItem12);
+//        jMenu1.add(jMenuItem12);
         jMenu1.add(jMenuItem13);
         jMenu1.add(jMenuItem14);
         jMenu2.add(jMenuItem21);
@@ -172,7 +191,7 @@ public class GameJFrame extends JFrame implements KeyListener {
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();
 
-        if (code == 65) {
+        if (code == 'U') {
             this.getContentPane().removeAll();
             ImageIcon icon = new ImageIcon(this.getClass().getResource("/image/puzzle/all.jpg"));
             JLabel all = new JLabel(icon);
@@ -206,6 +225,7 @@ public class GameJFrame extends JFrame implements KeyListener {
             data[xBlock][yBlock] = data[xBlock][yBlock - 1];
             data[xBlock][yBlock - 1] = 0;
             yBlock--;
+            count++;
             initImage();
         } else if (code == 38) {
             // 上移
@@ -215,6 +235,7 @@ public class GameJFrame extends JFrame implements KeyListener {
             data[xBlock][yBlock] = data[xBlock - 1][yBlock];
             data[xBlock - 1][yBlock] = 0;
             xBlock--;
+            count++;
             initImage();
         } else if (code == 39) {
             // 右移
@@ -224,6 +245,7 @@ public class GameJFrame extends JFrame implements KeyListener {
             data[xBlock][yBlock] = data[xBlock][yBlock + 1];
             data[xBlock][yBlock + 1] = 0;
             yBlock++;
+            count++;
             initImage();
         } else if (code == 40) {
             // 下移
@@ -233,14 +255,30 @@ public class GameJFrame extends JFrame implements KeyListener {
             data[xBlock][yBlock] = data[xBlock + 1][yBlock];
             data[xBlock + 1][yBlock] = 0;
             xBlock++;
+            count++;
             initImage();
         }
 
-        if (code == 'A') {
+        if (code == 'U') {
             initImage();
         }
+    }
 
-        if (code == 'W') {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Object obj = e.getSource();
+
+        if (obj == jMenuItem11) {
+            // 重新游戏
+            count = 0;
+            initData();
+            initImage();
+        } /*else if (obj == jMenuItem12) {
+            // 重新登录
+            this.setVisible(false);
+            new LoginJFrame();
+        }*/ else if (obj == jMenuItem13) {
+            // 一键通关
             data = new int[][]{
                     {1, 2, 3, 4},
                     {5, 6, 7, 8},
@@ -250,6 +288,27 @@ public class GameJFrame extends JFrame implements KeyListener {
             initImage();
             xBlock = 3;
             yBlock = 3;
+        } else if (obj == jMenuItem14) {
+            // 退出游戏
+            System.exit(0);
+        } else if (obj == jMenuItem21) {
+            // GitHub
+            JDialog github = new JDialog(this, "GitHub Page", true);
+            github.setSize(350, 150);
+            github.setLocationRelativeTo(this);
+            JLabel word1 = new JLabel("<html>GitHub: <a href=''>https://github.com/FeterPig</a></html>");
+            word1.setHorizontalAlignment(SwingConstants.CENTER);
+            github.add(word1);
+            github.setVisible(true);
+        } else if (obj == jMenuItem22) {
+            // 个人主页
+            JDialog page = new JDialog(this, "blog Page", true);
+            page.setSize(350, 150);
+            page.setLocationRelativeTo(this);
+            JLabel word2 = new JLabel("<html>blog: <a href=''>https://feterpig77.top</a></html>");
+            word2.setHorizontalAlignment(SwingConstants.CENTER);
+            page.add(word2);
+            page.setVisible(true);
         }
     }
 }
