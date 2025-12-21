@@ -1,10 +1,27 @@
-/**app.wxss**/
-.container {
-  height: 100%;
+// 全局重置：这是前端开发的 Best Practice
+// 让 padding 不会撑大盒子，类似 C++ UI 库的处理方式
+view,
+text,
+image,
+navigator {
+  box-sizing: border-box;
+}
+
+page {
+  // 统一背景色和字体
+  background-color: #f7f7f7;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica,
+    Segoe UI, Arial, Roboto, "PingFang SC", "miui", "Hiragino Sans GB",
+    "Microsoft Yahei", sans-serif;
+
+  // 开启 Flex 布局方便后续排版
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-} 
+  height: 100vh;
+}
+
+// 这是一个居中容器工具类，以后页面里直接用 class="container"
+.container {
+  padding: 30rpx;
+  width: 100%;
+}

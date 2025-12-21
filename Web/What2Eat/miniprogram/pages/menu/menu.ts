@@ -1,4 +1,4 @@
-// pages/index/index.ts
+// pages/menu/menu.ts
 Page({
   /**
    * 页面的初始数据

@@ -1,4 +1,4 @@
-// pages/index/index.ts
+// pages/profile/profile.ts
 Page({
   /**
    * 页面的初始数据

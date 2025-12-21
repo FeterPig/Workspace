@@ -1,18 +1,13 @@
-// app.ts
-App<IAppOption>({
-  globalData: {},
-  onLaunch() {
-    // 展示本地存储能力
-    const logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+import { initDefaultData } from "./utils/storage";
 
-    // 登录
-    wx.login({
-      success: res => {
-        console.log(res.code)
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      },
-    })
+// 这里的 <IAppOption> 就是那个“契约”
+App<IAppOption>({
+  // 1. 补上这个！哪怕是空的也要写，为了满足接口要求
+  globalData: {},
+
+  onLaunch() {
+    // 初始化数据
+    initDefaultData();
+    console.log("App Launch: 数据初始化完成");
   },
-})
+});
