@@ -2,8 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/menu/menu",
-    "pages/profile/profile",
-    "pages/menu/a"
+    "pages/profile/profile"
   ],
   "window": {
     "backgroundTextStyle": "light",

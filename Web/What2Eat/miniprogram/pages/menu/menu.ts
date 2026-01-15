@@ -1,47 +1,77 @@
-// pages/menu/menu.ts
-Page({
+// 1. 引入必要的类型定义 (就像 C++ include 头文件)
+// 如果没用到 FoodItem 可以删掉这行
+import { FoodItem } from "../../types/index";
+import { getFoodList, saveFoodList } from "../../utils/storage";
+
+Component({
   /**
-   * 页面的初始数据
+   * 1. 属性列表 (Properties)
+   * 类似于 C++ 构造函数的参数
+   * 只有当这个组件被别人调用，且传参进来时才用。
+   * 做独立页面时，这里通常是空的。
    */
-  data: {},
+  properties: {
+    // 示例: title: { type: String, value: '' }
+  },
 
   /**
-   * 生命周期函数--监听页面加载
+   * 2. 组件的初始数据 (Data)
+   * 类似于 C++ 类里的 Private Member Variables
+   * 注意：只有这里定义的数据，才能在 WXML 里用 {{}} 绑定
    */
-  onLoad() {},
+  data: {
+    // 显式断言类型，否则 TS 可能会把它推断成 never[]
+    foodList: [] as FoodItem[],
+    isLoading: false,
+    inputValue: "",
+  },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * 3. 方法列表 (Methods)
+   * 类似于 C++ 类里的 Public Member Functions
+   * 注意：页面生命周期 (onShow, onLoad) 和 点击事件 都要写在这里面！
    */
-  onReady() {},
+  methods: {
+    // ------------------- 生命周期区 -------------------
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {},
+    /**
+     * 对应 Page 的 onLoad
+     * 页面刚加载时触发 (只触发一次)
+     */
+    onLoad() {
+      console.log("页面加载了...");
+    },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {},
+    /**
+     * 对应 Page 的 onShow
+     * 每次切回这个页面都会触发
+     * 适合在这里刷新数据 (Refresh)
+     */
+    onShow() {
+      this.refreshData();
+    },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {},
+    // ------------------- 业务逻辑区 -------------------
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {},
+    // 封装一个刷新数据的私有函数
+    refreshData() {
+      const list = getFoodList();
+      this.setData({ foodList: list });
+    },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {},
+    // ------------------- 事件处理区 -------------------
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {},
+    // TODO: 点击按钮的事件
+    onMyButtonClick(e: any) {
+      console.log("按钮被点了", e);
+      // 逻辑写在这里
+    },
+
+    // TODO: 输入框输入事件
+    onInputChange(e: any) {
+      this.setData({
+        inputValue: e.detail.value,
+      });
+    },
+  },
 });
