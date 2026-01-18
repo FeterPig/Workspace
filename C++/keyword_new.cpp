@@ -17,7 +17,7 @@ int main()
         q[i] = i;
         cout << q[i] << ' ';
     }
-    delete q;
+    delete[] q;
 
     return 0;
 }

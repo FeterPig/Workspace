@@ -1,6 +1,7 @@
 // 设计一个学生类, 属性有姓名和学号, 可以给姓名和学号赋值, 可以显示学生的姓名和学号
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 class Student
