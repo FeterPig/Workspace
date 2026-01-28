@@ -1,10 +1,9 @@
 // 一些常用的算法函数
 
-#pragma once
 #include <algorithm>
 #include <numeric>
 #include <iostream>
-#include <bits/stdc++.h>
+#include <vector>
 using namespace std;
 
 /**
