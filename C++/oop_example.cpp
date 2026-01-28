@@ -30,7 +30,7 @@ public:
 int main()
 {
     Circle c;
-    cout << "请输入圆的面积:";
+    cout << "请输入圆的半径:";
     cin >> c.r;
     cout << "圆的面积为:" << c.func() << endl;
 

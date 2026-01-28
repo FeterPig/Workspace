@@ -1,40 +1,56 @@
-// 重载等号
+// 重载关系运算符
 
 #include <iostream>
-#include <string>
 using namespace std;
 
-class Student
+class Person
 {
 private:
-    int id_;
-    string name_;
-    int *score_;
+    int arg1_;
+    int arg2_;
 
 public:
-    Student(int, string, int, int, int);
-    ~Student();
+    friend void test(const Person &p1, const Person &p2);
+
+    Person(int arg1, int arg2);
+    ~Person();
+
+    bool operator==(const Person &p) const;
 };
 
-Student::Student(int id, string name, int arg1, int arg2, int arg3) : id_(id), name_(name)
+Person::Person(int arg1, int arg2) : arg1_(arg1), arg2_(arg2) {}
+Person::~Person() {}
+
+bool Person::operator==(const Person &p) const
 {
-    score_ = new int[3];
-    score_[0] = arg1;
-    score_[1] = arg2;
-    score_[2] = arg3;
+    return this->arg1_ == p.arg1_ && this->arg2_ == p.arg2_;
 }
 
-Student::~Student()
+void test(const Person &p1, const Person &p2)
 {
-    if (score_ != NULL)
+    if (p1 == p2)
     {
-        delete[] score_;
-        score_ = NULL;
+        cout << "(" << p1.arg1_ << "," << p1.arg2_ << ") = (" << p2.arg1_ << "," << p2.arg2_ << ")";
+    }
+    else
+    {
+        cout << "(" << p1.arg1_ << "," << p1.arg2_ << ") != (" << p2.arg1_ << "," << p2.arg2_ << ")";
     }
 }
 
 int main()
 {
-    Student s1(1, "张三", 30, 40, 50), s2(2, "李四", 80, 90, 100);
+    int num1, num2;
+
+    cout << "请输入第一对数据: ";
+    cin >> num1 >> num2;
+    Person p1(num1, num2);
+
+    cout << "请输入第二对数据: ";
+    cin >> num1 >> num2;
+    Person p2(num1, num2);
+
+    test(p1, p2);
+
     return 0;
 }
