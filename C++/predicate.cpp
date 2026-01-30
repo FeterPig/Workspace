@@ -49,9 +49,28 @@ void test2()
 // Lambda 就是一个“随用随弃”的匿名函数。它在底层其实就是编译器帮你自动生成的一个仿函数类。
 void test3()
 {
+    /**
+     * []:   不捕获
+     * [x]:  按值捕获x
+     * [&x]: 按引用捕获x
+     * [=]:  全体按值捕获
+     * [&]:  全体按引用捕获
+     */
+
+    /**
+     * [this]:  捕获当前this指针
+     * [*this]: 捕获当前对象副本
+     * [p = move(p)]: 处理智能指针等不可拷贝资源 (C++14)
+     */
+    
     vector v{9, 1, 7, 8, 6, 9};
     sort(v.begin(), v.end(), [](int a, int b)
          { return a < b; });
+
+    // 完整形式要加 -> 后置返回类型, 实际应用中通常省略
+    /*sort(v.begin(), v.end(), [](int a, int b) -> bool
+         { return a < b; });*/
+
     cout << "排序后: ";
     for (auto &&i : v)
     {
